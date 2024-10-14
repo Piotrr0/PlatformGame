@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
@@ -10,17 +11,22 @@ public class PlayerJump : MonoBehaviour
     private float maxGravity = 5f;
     private float gravityIncrement = 2f;
 
+    private bool isGrounded;
+
     private Rigidbody2D body;
     private Animator animator;
+    private BoxCollider2D boxCollider2D;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
+        Debug.Log(IsGrounded());
         JumpButton();
         UpdateGravity();
     }
@@ -65,11 +71,11 @@ public class PlayerJump : MonoBehaviour
 
     private bool IsGrounded()
     {
-        const float distance = 1f;
-        Vector2 position = transform.position;
+        if (boxCollider2D == null) return false;
+        const float distance = 0.1f;
         Vector2 direction = Vector2.down;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, direction, distance, groundLayer);
         return hit.collider != null;
     }
 
@@ -77,5 +83,4 @@ public class PlayerJump : MonoBehaviour
     {
         return body.velocity.y < 0 && !IsGrounded();
     }
-
 }
