@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
     private float maxGravity = 5f;
     private float gravityIncrement = 2f;
 
-    private bool isGrounded;
+    private bool isGrounded = false;
 
     private Rigidbody2D body;
     private Animator animator;
@@ -26,9 +26,10 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(IsGrounded());
+        animator.SetFloat("yVelocity", body.velocity.y);
         JumpButton();
         UpdateGravity();
+        isGrounded = IsGrounded();
     }
 
     private void JumpButton()
@@ -46,7 +47,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump()
     {
-        if (body != null && IsGrounded())
+        if (body != null && isGrounded)
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
         }
@@ -76,11 +77,13 @@ public class PlayerJump : MonoBehaviour
         Vector2 direction = Vector2.down;
 
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, direction, distance, groundLayer);
-        return hit.collider != null;
+        bool isGrounded = hit.collider != null;
+        animator.SetBool("IsGrounded", isGrounded);
+        return isGrounded;
     }
 
     private bool isFalling()
     {
-        return body.velocity.y < 0 && !IsGrounded();
+        return body.velocity.y < 0 && !isGrounded;
     }
 }
