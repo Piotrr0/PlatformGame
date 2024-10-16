@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e969ec67cc50c340b6ed64f74d16430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
 --- !u!4 &1951037661
 Transform:
   m_ObjectHideFlags: 0
@@ -808,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d07d3eee3d0144488c91c5d01665488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -823,7 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee85c54e245404f46917dccb5c9dfb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 0}
+  playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
