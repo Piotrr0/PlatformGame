@@ -73,7 +73,7 @@ public class PlayerJump : MonoBehaviour
     private bool IsGrounded()
     {
         if (boxCollider2D == null) return false;
-        const float distance = 0.1f;
+        const float distance = 0.5f;
         Vector2 direction = Vector2.down;
 
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, direction, distance, groundLayer);
