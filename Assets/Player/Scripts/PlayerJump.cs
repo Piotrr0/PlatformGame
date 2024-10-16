@@ -15,6 +15,12 @@ public class PlayerJump : MonoBehaviour
     private float maxGravity = 5f;
     private float gravityIncrement = 2f;
 
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter = 0f;
+
+    private float coyoteTime = 0.1f;
+    public float coyoteCounter = 0f;
+
     private bool isGrounded = false;
 
     private void Awake()
@@ -26,10 +32,16 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("yVelocity", body.velocity.y);
-        JumpButton();
-        UpdateGravity();
         isGrounded = IsGrounded();
+
+        JumpButton();
+        HandleJumpBuffer();
+        HandleCoyoteCounter();
+        JumpCutting();
+        UpdateGravity();
+  
+        animator.SetFloat("yVelocity", body.velocity.y);
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     private void JumpButton()
@@ -38,20 +50,55 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
-        }
+            jumpBufferCounter = jumpBufferTime;
 
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
-        {
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y * jumpCutMultiplier);
+            if (isGrounded || coyoteCounter > 0)
+            {
+                coyoteCounter = 0;
+                Jump();
+            }
         }
     }
 
     private void Jump()
     {
-        if (body != null && isGrounded)
+        if (body != null)
         {
             body.velocity = new Vector2(body.velocity.x, jumpForce);
+        }
+    }
+
+    private void HandleJumpBuffer()
+    {
+        if (isGrounded && jumpBufferCounter > 0)
+        {
+            Jump();
+            jumpBufferCounter = 0f;
+        }
+
+        if (jumpBufferCounter > 0)
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+    }
+
+    private void HandleCoyoteCounter()
+    {
+        if (!isGrounded)
+        {
+            coyoteCounter -= Time.deltaTime;
+        }
+        else
+        {
+            coyoteCounter = coyoteTime;
+        }
+    }
+
+    private void JumpCutting()
+    {
+        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y * jumpCutMultiplier);
         }
     }
 
@@ -80,7 +127,6 @@ public class PlayerJump : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, direction, distance, groundLayer);
         bool isGrounded = hit.collider != null;
-        animator.SetBool("IsGrounded", isGrounded);
         return isGrounded;
     }
 
