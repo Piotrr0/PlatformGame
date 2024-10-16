@@ -1,9 +1,13 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    [SerializeField] private PlayerSO playerSO;
     [SerializeField] private LayerMask groundLayer;
+    private Rigidbody2D body;
+    private Animator animator;
+    private BoxCollider2D boxCollider2D;
+
     private float jumpForce = 10f;
     private float jumpCutMultiplier = 0.3f;
 
@@ -12,10 +16,6 @@ public class PlayerJump : MonoBehaviour
     private float gravityIncrement = 2f;
 
     private bool isGrounded = false;
-
-    private Rigidbody2D body;
-    private Animator animator;
-    private BoxCollider2D boxCollider2D;
 
     private void Awake()
     {
@@ -34,6 +34,8 @@ public class PlayerJump : MonoBehaviour
 
     private void JumpButton()
     {
+        if (playerSO.combatState != CombatState.Unoccupied) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();

@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontalInput;
+    [SerializeField] private PlayerSO playerSO;
     private Rigidbody2D body;
     private Animator animator;
+    private float horizontalInput;
     private float moveSpeed = 10f;
     private bool facingRight = true;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         ProcessMovementInput();
-        if(CheckFlip())
+        if (CheckFlip())
         {
             Flip();
         }
@@ -25,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();    
+        if(playerSO.combatState == CombatState.Unoccupied)
+        {
+            Move();
+        }
     }
 
     private void Move()
