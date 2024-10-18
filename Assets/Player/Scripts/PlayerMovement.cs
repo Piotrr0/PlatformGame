@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateGroundedFalling();
         ProcessMovementInput();
         UpdateGravity();
-        if (CheckFlip())
+        if (CheckFlip() && playerSO.combatState == CombatState.Unoccupied)
         {
             Flip();
         }

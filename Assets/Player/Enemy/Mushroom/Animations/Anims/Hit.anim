@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack
+  m_Name: Hit
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 3f7241c4223ec584daffbd22e6792f3a, type: 3}
+      value: {fileID: 21300000, guid: 16f11abced04db34ca4fe34b2a40411b, type: 2}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 858f8b32544a6e94c8bca4fb6c4360c3, type: 3}
+      value: {fileID: 21300000, guid: c535e5d147e0dbd4b9f269fbc746588c, type: 2}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 6a6150c4f98ac004fa3c3dce6c18687d, type: 3}
+      value: {fileID: 21300000, guid: 4febe788f7e082e468429c35347222e1, type: 2}
     - time: 0.5
-      value: {fileID: 21300000, guid: 76527201b1ed8324caf217b4250cd170, type: 3}
+      value: {fileID: 21300000, guid: adf31fbcd8c28a74698efed2897d107b, type: 2}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: fccff03be30aa5d4e9d3d789c1a28473, type: 3}
+      value: {fileID: 21300000, guid: d2328a7ee6f36114997efc330c1641d2, type: 2}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,11 +52,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 3f7241c4223ec584daffbd22e6792f3a, type: 3}
-    - {fileID: 21300000, guid: 858f8b32544a6e94c8bca4fb6c4360c3, type: 3}
-    - {fileID: 21300000, guid: 6a6150c4f98ac004fa3c3dce6c18687d, type: 3}
-    - {fileID: 21300000, guid: 76527201b1ed8324caf217b4250cd170, type: 3}
-    - {fileID: 21300000, guid: fccff03be30aa5d4e9d3d789c1a28473, type: 3}
+    - {fileID: 21300000, guid: 16f11abced04db34ca4fe34b2a40411b, type: 2}
+    - {fileID: 21300000, guid: c535e5d147e0dbd4b9f269fbc746588c, type: 2}
+    - {fileID: 21300000, guid: 4febe788f7e082e468429c35347222e1, type: 2}
+    - {fileID: 21300000, guid: adf31fbcd8c28a74698efed2897d107b, type: 2}
+    - {fileID: 21300000, guid: d2328a7ee6f36114997efc330c1641d2, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -67,7 +67,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -81,18 +81,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.33333334
-    functionName: DetectHitEnemies
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
-    functionName: FinishAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
