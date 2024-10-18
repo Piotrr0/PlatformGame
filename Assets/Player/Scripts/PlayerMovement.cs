@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator animator;
     private float horizontalInput;
-    private float moveSpeed = 10f;
+    private float moveSpeed = 7f;
     private bool facingRight = true;
 
     private void Awake()

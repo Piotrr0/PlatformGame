@@ -8,7 +8,7 @@ public class PlayerJump : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider2D;
 
-    private float jumpForce = 10f;
+    private float jumpForce = 8f;
     private float jumpCutMultiplier = 0.3f;
 
     private float gravity = 1f;
@@ -38,6 +38,7 @@ public class PlayerJump : MonoBehaviour
         HandleJumpBuffer();
         HandleCoyoteCounter();
         JumpCutting();
+
         UpdateGravity();
   
         animator.SetFloat("yVelocity", body.velocity.y);
@@ -122,7 +123,7 @@ public class PlayerJump : MonoBehaviour
     private bool IsGrounded()
     {
         if (boxCollider2D == null) return false;
-        const float distance = 0.5f;
+        const float distance = 0.25f;
         Vector2 direction = Vector2.down;
 
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, direction, distance, groundLayer);
