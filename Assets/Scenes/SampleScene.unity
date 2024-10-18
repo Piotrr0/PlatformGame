@@ -664,6 +664,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1951037661
 Transform:
   m_ObjectHideFlags: 0
@@ -810,10 +813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  coyoteCounter: 0
 --- !u!114 &1951037667
 MonoBehaviour:
   m_ObjectHideFlags: 0

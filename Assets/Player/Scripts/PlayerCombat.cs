@@ -16,7 +16,10 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerSO.combatState == CombatState.Unoccupied)
         {
-            Attack();
+            if (playerSO.isGrounded)
+            {
+                Attack();
+            }
         }
     }
 

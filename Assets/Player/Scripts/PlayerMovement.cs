@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         UpdateGroundedFalling();
         ProcessMovementInput();
         UpdateGravity();
