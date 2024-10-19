@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     private Animator animator;
     private Rigidbody2D body;
-    private float attackRange;
+    [SerializeField] private float attackRange = 0.5f;
 
     private void Awake()
     {
