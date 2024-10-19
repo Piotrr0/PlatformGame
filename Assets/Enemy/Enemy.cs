@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetFloat("xVelocity", Mathf.Abs(body.velocity.x));
         }
-        if (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             MoveToPlayer();
         }
