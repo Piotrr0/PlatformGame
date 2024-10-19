@@ -415,6 +415,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1336b06cd3f465c45972a8ce27a46484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &859726705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859726694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460f1a1eb064e34488cec000e2cfbea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1951037661}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &859726706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859726694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb36311cbe08954c81b6ba93f51d451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {x: 10, y: -1}
+  - {x: -2, y: -1}
 --- !u!1 &875513161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608095769676784657, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3608095769676784657, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2229,11 +2260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527551527951677450, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 2.002
       objectReference: {fileID: 0}
     - target: {fileID: 4527551527951677450, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       propertyPath: m_Offset.y
-      value: -1
+      value: -1.001
       objectReference: {fileID: 0}
     - target: {fileID: 4527551527951677450, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -2293,6 +2324,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5564824677042408465, guid: 53868d4b6795335448cc7830856a8019, type: 3}
       insertIndex: -1
       addedObject: {fileID: 859726700}
+    - targetCorrespondingSourceObject: {fileID: 5564824677042408465, guid: 53868d4b6795335448cc7830856a8019, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 859726705}
+    - targetCorrespondingSourceObject: {fileID: 5564824677042408465, guid: 53868d4b6795335448cc7830856a8019, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 859726706}
   m_SourcePrefab: {fileID: 100100000, guid: 53868d4b6795335448cc7830856a8019, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
