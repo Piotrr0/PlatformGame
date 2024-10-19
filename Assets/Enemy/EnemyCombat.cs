@@ -21,7 +21,7 @@ public class EnemyCombat : MonoBehaviour
 
     private void Update()
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+        if (animator != null && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
         {
             Attack();
         }
@@ -29,7 +29,7 @@ public class EnemyCombat : MonoBehaviour
 
     private void Attack()
     {
-        if (enemyAI.DistanceToPlayer <= attackRange)
+        if (enemyAI != null && enemyAI.DistanceToPlayer <= attackRange)
         {
             animator.SetTrigger("Attack");
         }
@@ -41,7 +41,10 @@ public class EnemyCombat : MonoBehaviour
         if (player != null)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(10f);
+            if (playerHealth)
+            {
+                playerHealth.TakeDamage(10f);
+            }
         }
     }
 

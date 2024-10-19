@@ -28,7 +28,10 @@ public class PlayerJump : MonoBehaviour
         HandleCoyoteCounter();
         JumpCutting();
 
-        animator.SetFloat("yVelocity", body.velocity.y);
+        if(animator != null && body != null)
+        {
+            animator.SetFloat("yVelocity", body.velocity.y);
+        }
     }
 
     private void JumpButton()
@@ -83,7 +86,7 @@ public class PlayerJump : MonoBehaviour
 
     private void JumpCutting()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+        if (Input.GetKeyUp(KeyCode.Space) && body && body.velocity.y > 0)
         {
             body.velocity = new Vector2(body.velocity.x, body.velocity.y * jumpCutMultiplier);
         }

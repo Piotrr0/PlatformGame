@@ -48,11 +48,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (body)
+        if (body != null)
         {
             Vector2 velocity = new Vector2(horizontalInput * moveSpeed, body.velocity.y);
             body.velocity = velocity;
-            animator.SetFloat("xVelocity", Mathf.Abs(body.velocity.x));
+            if(animator != null)
+            {
+                animator.SetFloat("xVelocity", Mathf.Abs(body.velocity.x));
+            }
         }
     }
 

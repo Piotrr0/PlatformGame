@@ -4,6 +4,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask groundLayer;
+    private BoxCollider2D boxCollider2D;
     private Enemy owner;
     private float distanceToPlayer = float.MaxValue;
     private float radius = 3f;
@@ -20,12 +21,16 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         owner = GetComponent<Enemy>();    
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        DetectPlayer();
+        if(player != null)
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            DetectPlayer();
+        }
         if (CheckFlip())
         {
             Flip();
@@ -55,11 +60,15 @@ public class EnemyAI : MonoBehaviour
 
     private bool IsGroundAhead(float direction)
     {
-        Bounds colliderBounds = owner.BoxCollider2D.bounds;
-        Vector2 rayStart = new Vector2(colliderBounds.center.x + (direction * colliderBounds.extents.x), colliderBounds.min.y);
-        RaycastHit2D hit = Physics2D.Raycast(rayStart, Vector2.down, 0.1f, groundLayer);
+        if (boxCollider2D != null)
+        {
+            Bounds colliderBounds = boxCollider2D.bounds;
+            Vector2 rayStart = new Vector2(colliderBounds.center.x + (direction * colliderBounds.extents.x), colliderBounds.min.y);
+            RaycastHit2D hit = Physics2D.Raycast(rayStart, Vector2.down, 0.1f, groundLayer);
 
-        return hit.collider != null;
+            return hit.collider != null;
+        }
+        return false;
     }
 
     private bool CheckFlip()

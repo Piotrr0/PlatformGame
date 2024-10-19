@@ -41,11 +41,17 @@ public class PlayerCombat : MonoBehaviour
 
     private void DetectHitEnemies()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider2D collider in hitEnemies)
+        if(attackPoint)
         {
-            EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(25f);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            foreach (Collider2D collider in hitEnemies)
+            {
+                EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(25f);
+                }
+            }
         }
     }
 
@@ -56,6 +62,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        if(attackPoint)
+        {
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
     }
 }

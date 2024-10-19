@@ -6,7 +6,6 @@ using UnityEngine;
 public class PatrolComponment : MonoBehaviour
 {
     private EnemyAI enemyAI;
-
     [SerializeField] private List<Vector2> patrolPoints;
 
     private void Awake()
@@ -24,7 +23,7 @@ public class PatrolComponment : MonoBehaviour
         while (Mathf.Abs(transform.position.x - patrolPoint.x) > 0.01f) 
         {
             Vector2 targetPosition = new Vector2(patrolPoint.x, transform.position.y);
-            if(!enemyAI.Move(targetPosition) || enemyAI.PlayerDetected)
+            if(enemyAI == null || !enemyAI.Move(targetPosition) || enemyAI.PlayerDetected)
             {
                 yield break;
             }
@@ -34,7 +33,7 @@ public class PatrolComponment : MonoBehaviour
 
     private IEnumerator SelectPatrolPoints()
     {
-        while (!enemyAI.PlayerDetected)
+        while (enemyAI && !enemyAI.PlayerDetected)
         {
             foreach (Vector2 patrolPoint in patrolPoints)
             {
