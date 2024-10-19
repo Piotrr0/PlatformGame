@@ -45,6 +45,7 @@ public class PatrolComponment : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.green;
         foreach(Vector2 patrolPoint in patrolPoints)
         {
             Gizmos.DrawWireSphere(patrolPoint, 0.25f);
