@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -12,11 +9,12 @@ public class EnemyAI : MonoBehaviour
     private float radius = 3f;
     private bool playerDetected = false;
 
-    [SerializeField] private float movementDirection = -1f;
-    [SerializeField] private bool facingRight = false;
-
+    private float movementDirection = -1f;
+    private bool facingRight = false;
 
     public bool PlayerDetected { get { return playerDetected; } }
+    public float DistanceToPlayer { get { return distanceToPlayer; } }
+    public Transform Player { get { return player; } }  
     public Enemy Owner { get { return owner; } }
 
     private void Awake()
@@ -60,8 +58,6 @@ public class EnemyAI : MonoBehaviour
         Bounds colliderBounds = owner.BoxCollider2D.bounds;
         Vector2 rayStart = new Vector2(colliderBounds.center.x + (direction * colliderBounds.extents.x), colliderBounds.min.y);
         RaycastHit2D hit = Physics2D.Raycast(rayStart, Vector2.down, 0.1f, groundLayer);
-
-        Debug.DrawRay(rayStart, Vector2.down * 0.1f, Color.red);
 
         return hit.collider != null;
     }
