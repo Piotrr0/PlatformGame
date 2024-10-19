@@ -7,9 +7,8 @@ public class PlayerHealth : Health
         base.Awake();
     }
 
-    public override void TakeDamage(float damageAmount)
+    public override void TakeDamage(float damageAmount, Vector2 knockback)
     {
-        base.TakeDamage(damageAmount);
-        Debug.Log(health);
+        base.TakeDamage(damageAmount, knockback);
     }
 }

@@ -34,22 +34,4 @@ public class EnemyCombat : MonoBehaviour
             animator.SetTrigger("Attack");
         }
     }
-
-    private void DetectHitPlayer()
-    {
-        Collider2D player = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
-        if (player != null)
-        {
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth)
-            {
-                playerHealth.TakeDamage(10f);
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(attackPoint.position, attackSize);
-    }
 }

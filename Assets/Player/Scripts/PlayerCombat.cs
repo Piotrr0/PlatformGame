@@ -7,7 +7,6 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     private Animator animator;
     private Rigidbody2D body;
-    [SerializeField] private float attackRange = 0.5f;
 
     private void Awake()
     {
@@ -39,32 +38,8 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    private void DetectHitEnemies()
-    {
-        if(attackPoint)
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-            foreach (Collider2D collider in hitEnemies)
-            {
-                EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
-                if (enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(25f);
-                }
-            }
-        }
-    }
-
     private void FinishAttack()
     {
         playerSO.combatState = CombatState.Unoccupied;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if(attackPoint)
-        {
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
     }
 }

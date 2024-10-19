@@ -10,9 +10,9 @@ public class EnemyHealth : Health
         animator = GetComponent<Animator>();
     }
 
-    public override void TakeDamage(float damageAmount)
+    public override void TakeDamage(float damageAmount, Vector2 knockback)
     {
-        base.TakeDamage(damageAmount);
+        base.TakeDamage(damageAmount, knockback);
         if (animator != null)
         {
             animator.SetTrigger("Hit");
