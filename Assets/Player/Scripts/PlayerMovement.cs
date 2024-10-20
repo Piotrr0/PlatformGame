@@ -6,11 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     private Rigidbody2D body;
-    private Animator animator;
     private BoxCollider2D boxCollider2D;
-
-    private bool isGrounded = false;
-    private bool isFalling = false;
 
     private float horizontalInput;
     private float moveSpeed = 7f;
@@ -23,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
@@ -32,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateGroundedFalling();
         ProcessMovementInput();
         UpdateGravity();
-        if (CheckFlip() && playerSO.combatState == CombatState.Unoccupied)
+        if (CheckFlip() && !playerSO.isAttacking)
         {
             Flip();
         }
@@ -40,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(playerSO.combatState == CombatState.Unoccupied)
+        if(!playerSO.isAttacking)
         {
             Move();
         }
@@ -52,10 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 velocity = new Vector2(horizontalInput * moveSpeed, body.velocity.y);
             body.velocity = velocity;
-            if(animator != null)
-            {
-                animator.SetFloat("xVelocity", Mathf.Abs(body.velocity.x));
-            }
+            playerSO.currentVelocity = velocity;
         }
     }
 
@@ -88,11 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateGroundedFalling()
     {
-        isGrounded = IsGrounded();
-        isFalling = IsFalling();
-        playerSO.isGrounded = isGrounded;
-        playerSO.isFalling = isFalling;
-        animator.SetBool("IsGrounded", isGrounded);
+        playerSO.isGrounded = IsGrounded();
+        playerSO.isFalling = IsFalling();
     }
 
     private bool IsGrounded()
@@ -108,12 +97,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsFalling()
     {
-        return body.velocity.y < 0 && !isGrounded;
+        return body.velocity.y < 0 && !playerSO.isGrounded;
     }
 
     private void UpdateGravity()
     {
-        if (isFalling)
+        if (!playerSO.isGrounded)
         {
             gravity = Mathf.Min(gravity + gravityIncrement * Time.deltaTime, maxGravity);
         }

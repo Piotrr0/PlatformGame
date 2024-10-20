@@ -252,6 +252,34 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 315901080}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnemyController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -324,13 +352,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 315901080}
+    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnemyController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: knockbak.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: knockbak.y
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: knockback.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      propertyPath: knockback.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8277738272557794545, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: player
@@ -340,10 +388,30 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 315901080}
     - targetCorrespondingSourceObject: {fileID: 8380890825299899577, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1824337330}
   m_SourcePrefab: {fileID: 100100000, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+--- !u!1 &315901069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+  m_PrefabInstance: {fileID: 311622227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &315901080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315901069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b98f865c49dfe4b833333497a91a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
-  knockbak: {x: 0, y: 0}
+  knockback: {x: 3, y: 0}
 --- !u!1 &1824337326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8380890825299899577, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
@@ -2353,11 +2421,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee85c54e245404f46917dccb5c9dfb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951037669}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: onAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  attackPoint: {fileID: 1272150796}
 --- !u!114 &1951037668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,6 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985611cefd6012b4a8337c761be0202f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 1ab5d10a412e42a4d83f13f3a7510bd7, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

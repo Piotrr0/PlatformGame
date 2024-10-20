@@ -1,22 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onAttack;
     [SerializeField] private PlayerSO playerSO;
-    [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private Transform attackPoint;
-    private Animator animator;
-    private Rigidbody2D body;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        body = GetComponent<Rigidbody2D>();
-    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerSO.combatState == CombatState.Unoccupied)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !playerSO.isAttacking)
         {
             if (playerSO.isGrounded)
             {
@@ -27,19 +19,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
-        playerSO.combatState = CombatState.Attack;
-        if (animator != null)
-        {
-            animator.SetTrigger("Attack");
-        }
-        if(body != null)
-        {
-            body.velocity = new Vector2(0, body.velocity.y);
-        }
+        playerSO.isAttacking = true;
+        onAttack?.Invoke();
     }
 
     private void FinishAttack()
     {
-        playerSO.combatState = CombatState.Unoccupied;
+        playerSO.isAttacking = false;
     }
 }

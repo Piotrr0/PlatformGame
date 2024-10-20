@@ -13,17 +13,12 @@ public class PatrolComponment : MonoBehaviour
         enemyAI = GetComponent<EnemyAI>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(SelectPatrolPoints());
-    }
-
-    private IEnumerator MoveToPatrolPoint(Vector2 patrolPoint)
+    private IEnumerator MoveToPatrolPoint(Vector2 patrolPoint, float speed)
     {
         while (Mathf.Abs(transform.position.x - patrolPoint.x) > 0.01f) 
         {
             Vector2 targetPosition = new Vector2(patrolPoint.x, transform.position.y);
-            if(enemyAI == null || !enemyAI.Move(targetPosition) || enemyAI.PlayerDetected)
+            if(enemyAI == null || !enemyAI.Move(targetPosition, speed) || enemyAI.PlayerDetected)
             {
                 yield break;
             }
@@ -31,13 +26,13 @@ public class PatrolComponment : MonoBehaviour
         }
     }
 
-    private IEnumerator SelectPatrolPoints()
+    public IEnumerator StartPatroling(float speed)
     {
         while (enemyAI && !enemyAI.PlayerDetected)
         {
             foreach (Vector2 patrolPoint in patrolPoints)
             {
-                yield return StartCoroutine(MoveToPatrolPoint(patrolPoint));
+                yield return StartCoroutine(MoveToPatrolPoint(patrolPoint, speed));
             }
         }
     }

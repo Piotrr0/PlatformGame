@@ -5,7 +5,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask groundLayer;
     private BoxCollider2D boxCollider2D;
-    private Enemy owner;
     private float distanceToPlayer = float.MaxValue;
     private float radius = 3f;
     private bool playerDetected = false;
@@ -16,11 +15,9 @@ public class EnemyAI : MonoBehaviour
     public bool PlayerDetected { get { return playerDetected; } }
     public float DistanceToPlayer { get { return distanceToPlayer; } }
     public Transform Player { get { return player; } }  
-    public Enemy Owner { get { return owner; } }
 
     private void Awake()
     {
-        owner = GetComponent<Enemy>();    
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
@@ -45,14 +42,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public bool Move(Vector2 target)
+    public bool Move(Vector2 target, float speed)
     {
         movementDirection = Mathf.Sign(target.x - transform.position.x);
 
         if (IsGroundAhead(movementDirection))
         {
             float fixedY = transform.position.y;
-            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, fixedY), target, owner.Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, fixedY), target, speed * Time.deltaTime);
             return true;
         }
         return false;

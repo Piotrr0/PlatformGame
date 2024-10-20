@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     private Animator animator;
     private EnemyAI enemyAI;
+    private PatrolComponment patrolComponment;
     private Rigidbody2D body;
     private float speed = 3f;
 
@@ -14,6 +15,12 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         enemyAI = GetComponent<EnemyAI>();
+        patrolComponment = GetComponent<PatrolComponment>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(patrolComponment.StartPatroling(speed));
     }
 
     private void Update()
@@ -32,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if (enemyAI && enemyAI.PlayerDetected)
         {
-            enemyAI.Move(enemyAI.Player.position);
+            enemyAI.Move(enemyAI.Player.position, speed);
         }
     }
 }

@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyCombat : MonoBehaviour
 {
+    [SerializeField] UnityEvent onAttack;
     [SerializeField] Transform attackPoint;
     [SerializeField] LayerMask playerLayer;
     private EnemyAI enemyAI;
@@ -28,7 +28,7 @@ public class EnemyCombat : MonoBehaviour
     {
         if (enemyAI != null && enemyAI.DistanceToPlayer <= attackRange)
         {
-            animator.SetTrigger("Attack");
+            onAttack?.Invoke();
         }
     }
 }

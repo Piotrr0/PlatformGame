@@ -4,7 +4,6 @@ public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private PlayerSO playerSO;
     private Rigidbody2D body;
-    private Animator animator;
 
     private float jumpForce = 8f;
     private float jumpCutMultiplier = 0.3f;
@@ -18,7 +17,6 @@ public class PlayerJump : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,16 +25,11 @@ public class PlayerJump : MonoBehaviour
         HandleJumpBuffer();
         HandleCoyoteCounter();
         JumpCutting();
-
-        if(animator != null && body != null)
-        {
-            animator.SetFloat("yVelocity", body.velocity.y);
-        }
     }
 
     private void JumpButton()
     {
-        if (playerSO.combatState != CombatState.Unoccupied) return;
+        if (playerSO.isAttacking) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
