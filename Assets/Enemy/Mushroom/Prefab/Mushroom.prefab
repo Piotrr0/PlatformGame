@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8436740953287114268}
   - component: {fileID: 6774823810149493918}
   - component: {fileID: 289048503592578391}
+  - component: {fileID: 4382930545987386670}
   - component: {fileID: 6169822113927294967}
   - component: {fileID: 1201737474761141834}
   - component: {fileID: 7582761518544463978}
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 2066418125
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2106139055, guid: 1855bd543cfbf504a9f96a0bf6c9b6c0, type: 3}
+  m_Sprite: {fileID: 1219137951, guid: 8209d781da4f8f846886d44bb9e744ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +137,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -156,7 +157,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -186,6 +187,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.002}
   m_EdgeRadius: 0
+--- !u!114 &4382930545987386670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378227311310121745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b98f865c49dfe4b833333497a91a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6169822113927294967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +223,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55986845beba5944796e68d0de81cc61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4382930545987386670}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   attackPoint: {fileID: 6294816573202965918}
   playerLayer:
     serializedVersion: 2
@@ -229,9 +257,9 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 4382930545987386670}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: onHit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -282,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6294816573202965918}
   - component: {fileID: 8030717879804057463}
+  - component: {fileID: 4725055075072323795}
   m_Layer: 7
   m_Name: Attack
   m_TagString: Untagged
@@ -298,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 8380890825299899577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -317,4 +346,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
-  knockbak: {x: 1, y: 1}
+  knockback: {x: 2, y: 5}
+--- !u!60 &4725055075072323795
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380890825299899577}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.4204061, y: -0.95305824}
+      - {x: -1.9808507, y: -1.1113892}
+      - {x: -2.1058443, y: -1.829934}
+      - {x: -1.2676202, y: -2.0163622}
+      - {x: -0.9299273, y: -1.647369}
+      - {x: -0.98424685, y: -1.0492463}
+  m_UseDelaunayMesh: 0
