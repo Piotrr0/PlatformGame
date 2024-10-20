@@ -248,69 +248,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 289048503592578391, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 315901080}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnemyController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201737474761141834, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: m_Name
       value: Mushroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 4315431029330859238, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1219137951, guid: 8209d781da4f8f846886d44bb9e744ff, type: 3}
-    - target: {fileID: 6294816573202965918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294816573202965918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774823810149493918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774823810149493918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774823810149493918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774823810149493918, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7531659110916495050, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -352,34 +292,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 315901080}
-    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: onHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7582761518544463978, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnemyController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: knockbak.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: knockbak.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: knockback.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030717879804057463, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      propertyPath: knockback.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8277738272557794545, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: player
       value: 
@@ -387,31 +299,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 315901080}
-    - targetCorrespondingSourceObject: {fileID: 8380890825299899577, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1824337330}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
---- !u!1 &315901069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-  m_PrefabInstance: {fileID: 311622227}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &315901080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315901069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b98f865c49dfe4b833333497a91a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,62 +2027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   knockback: {x: 3, y: 0}
---- !u!1 &1824337326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8380890825299899577, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
-  m_PrefabInstance: {fileID: 311622227}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &1824337330
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824337326}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.4204061, y: -0.95305824}
-      - {x: -1.9808507, y: -1.1113892}
-      - {x: -2.1058443, y: -1.829934}
-      - {x: -1.2676202, y: -2.0163622}
-      - {x: -0.9299273, y: -1.647369}
-      - {x: -0.98424685, y: -1.0492463}
-  m_UseDelaunayMesh: 0
 --- !u!1 &1951037656
 GameObject:
   m_ObjectHideFlags: 0
