@@ -8,10 +8,7 @@ public class EnemyCombat : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     private EnemyAI enemyAI;
     private Animator animator;
-
     private float attackRange = 2f;
-    private float attackSize = 0.5f;
-
 
     private void Awake()
     {
