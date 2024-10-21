@@ -1,31 +1,32 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace player.controller
 {
-    [SerializeField] PlayerSO playerSO;
-    private Rigidbody2D body;
-    private Animator animator;
-
-    private void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        body = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        playerSO.animator = animator;
-    }
+        private Rigidbody2D body;
+        private Animator animator;
 
-    public void onHit(float damage, Vector2 knockback)
-    {
-        if (body != null)
+        private void Awake()
         {
-            body.velocity = new Vector2(knockback.x, body.velocity.y + knockback.y);
+            body = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
-    }
 
-    public void onAttack()
-    {
-        if (body != null)
+        public void onHit(float damage, Vector2 knockback)
         {
-            body.velocity = new Vector2(0, body.velocity.y);
+            if (body != null)
+            {
+                body.velocity = new Vector2(knockback.x, body.velocity.y + knockback.y);
+            }
+        }
+
+        public void onAttack()
+        {
+            if (body != null)
+            {
+                body.velocity = new Vector2(0, body.velocity.y);
+            }
         }
     }
 }
