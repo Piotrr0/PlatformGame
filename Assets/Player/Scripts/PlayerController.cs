@@ -1,3 +1,4 @@
+using player.movement;
 using UnityEngine;
 
 namespace player.controller
@@ -5,12 +6,12 @@ namespace player.controller
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody2D body;
-        private Animator animator;
+        private PlayerMovement movement;
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
-            animator = GetComponent<Animator>();
+            movement = GetComponent<PlayerMovement>();
         }
 
         public void onHit(float damage, Vector2 knockback)
@@ -26,6 +27,18 @@ namespace player.controller
             if (body != null)
             {
                 body.velocity = new Vector2(0, body.velocity.y);
+                if(movement != null)
+                {
+                    movement.CanMove = false;
+                }
+            }
+        }
+
+        public void onEndAttack()
+        {
+            if (movement != null)
+            {
+                movement.CanMove = true;
             }
         }
     }

@@ -122,6 +122,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &210559620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+  m_PrefabInstance: {fileID: 311622227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &210559633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210559620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb559db8d7fbf754bb5cdc442d2434f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFacingRight: 0
 --- !u!1 &227113393
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +317,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2378227311310121745, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 210559633}
   m_SourcePrefab: {fileID: 100100000, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -2046,6 +2067,7 @@ GameObject:
   - component: {fileID: 1951037667}
   - component: {fileID: 1951037668}
   - component: {fileID: 1951037670}
+  - component: {fileID: 1951037671}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2268,6 +2290,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEndAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951037669}
+        m_TargetAssemblyTypeName: player.controller.PlayerController, Assembly-CSharp
+        m_MethodName: onEndAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1951037668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2319,6 +2356,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aaf1e760e184c43acb43ecb62f8921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1951037671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951037656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb559db8d7fbf754bb5cdc442d2434f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFacingRight: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

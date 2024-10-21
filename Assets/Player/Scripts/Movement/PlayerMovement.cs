@@ -1,5 +1,6 @@
 using UnityEngine;
 using player.combat;
+using sprite.flip;
 
 namespace player.movement
 {
@@ -52,6 +53,11 @@ namespace player.movement
             }
         }
 
+
+        private bool canMove = true;
+        public bool CanMove { set  { canMove = value; } }
+
+
         private float moveSpeed = 7f;
         private float horizontalInput;
         private bool facingRight = true;
@@ -68,15 +74,11 @@ namespace player.movement
         {
             UpdateGroundedFalling();
             ProcessMovementInput();
-            if (CheckFlip() && !combat.isAttacking)
-            {
-                Flip();
-            }
         }
 
         private void FixedUpdate()
         {
-            if (!combat.isAttacking)
+            if (canMove)
             {
                 Move();
             }
@@ -95,28 +97,6 @@ namespace player.movement
         private void ProcessMovementInput()
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
-        }
-
-        private bool CheckFlip()
-        {
-            if (horizontalInput > 0 && !facingRight)
-            {
-                return true;
-            }
-            else if (horizontalInput < 0 && facingRight)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private void Flip()
-        {
-            Vector3 scale = gameObject.transform.localScale;
-            scale.x *= -1;
-            gameObject.transform.localScale = scale;
-
-            facingRight = !facingRight;
         }
 
         private void UpdateGroundedFalling()

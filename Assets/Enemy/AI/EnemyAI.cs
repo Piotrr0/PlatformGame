@@ -10,7 +10,6 @@ public class EnemyAI : MonoBehaviour
     private bool playerDetected = false;
 
     private float movementDirection = -1f;
-    private bool facingRight = false;
 
     public bool PlayerDetected { get { return playerDetected; } }
     public float DistanceToPlayer { get { return distanceToPlayer; } }
@@ -27,10 +26,6 @@ public class EnemyAI : MonoBehaviour
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.position);
             DetectPlayer();
-        }
-        if (CheckFlip())
-        {
-            Flip();
         }
     }
 
@@ -66,27 +61,5 @@ public class EnemyAI : MonoBehaviour
             return hit.collider != null;
         }
         return false;
-    }
-
-    private bool CheckFlip()
-    {
-        if (movementDirection > 0 && !facingRight)
-        {
-            return true;
-        }
-        else if (movementDirection < 0 && facingRight)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    private void Flip()
-    {
-        Vector3 scale = gameObject.transform.localScale;
-        scale.x *= -1;
-        gameObject.transform.localScale = scale;
-
-        facingRight = !facingRight;
     }
 }

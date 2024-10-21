@@ -7,6 +7,7 @@ namespace player.combat
     public class PlayerCombat : MonoBehaviour
     {
         [SerializeField] private UnityEvent onAttack;
+        [SerializeField] private UnityEvent onEndAttack;
         private PlayerMovement movement;
         private Animator animator;
 
@@ -48,6 +49,7 @@ namespace player.combat
         public void FinishAttack()
         {
             isAttacking = false;
+            onEndAttack?.Invoke();
         }
     }
 
