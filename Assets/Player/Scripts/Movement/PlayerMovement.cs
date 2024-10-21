@@ -1,6 +1,7 @@
 using UnityEngine;
 using player.combat;
 using sprite.flip;
+using UnityEngine.UI;
 
 namespace player.movement
 {
@@ -11,8 +12,7 @@ namespace player.movement
         private Rigidbody2D body;
         private BoxCollider2D boxCollider2D;
         private Animator animator;
-        private PlayerCombat combat;
-
+        private SpriteFlipper flipper;
 
         private bool _isGrounded;
         public bool isGrounded
@@ -66,12 +66,15 @@ namespace player.movement
         {
             body = GetComponent<Rigidbody2D>();
             boxCollider2D = GetComponent<BoxCollider2D>();
-            animator = GetComponent<Animator>();    
-            combat = GetComponent<PlayerCombat>();
+            animator = GetComponent<Animator>();
+            flipper = GetComponent<SpriteFlipper>();
         }
 
         private void Update()
         {
+            if (flipper != null)
+                flipper.MoveDirection = horizontalInput;
+            
             UpdateGroundedFalling();
             ProcessMovementInput();
         }

@@ -1,3 +1,4 @@
+using sprite.flip;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -5,6 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private LayerMask groundLayer;
     private BoxCollider2D boxCollider2D;
+    private SpriteFlipper flipper;
     private float distanceToPlayer = float.MaxValue;
     private float radius = 3f;
     private bool playerDetected = false;
@@ -18,11 +20,16 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
+        flipper = GetComponent<SpriteFlipper>();
     }
 
     private void Update()
     {
-        if(player != null)
+        if(flipper != null)
+            flipper.MoveDirection = movementDirection;
+
+
+        if (player != null)
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.position);
             DetectPlayer();
