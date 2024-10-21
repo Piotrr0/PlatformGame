@@ -60,7 +60,6 @@ namespace player.movement
 
         private float moveSpeed = 7f;
         private float horizontalInput;
-        private bool facingRight = true;
 
         private void Awake()
         {
