@@ -24,7 +24,7 @@ namespace player.movement.gravity
 
         private void UpdateGravity()
         {
-            if (movement.isGrounded)
+            if (movement && !movement.isGrounded)
             {
                 gravity = Mathf.Min(gravity + gravityIncrement * Time.deltaTime, maxGravity);
             }
