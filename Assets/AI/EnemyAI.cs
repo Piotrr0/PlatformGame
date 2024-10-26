@@ -47,9 +47,11 @@ namespace ai.controller
         {
             movementDirection = Mathf.Sign(target.x - transform.position.x);
 
+            float fixedY = transform.position.y;
+            target = new Vector2(target.x, fixedY);
+
             if (IsGroundAhead(movementDirection))
             {
-                float fixedY = transform.position.y;
                 transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, fixedY), target, speed * Time.deltaTime);
                 return true;
             }
