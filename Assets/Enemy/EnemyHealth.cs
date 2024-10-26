@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class EnemyHealth : Health
+namespace enemy.health
 {
-    private Animator animator;
-
-    public override void Awake()
+    public class EnemyHealth : Health
     {
-        base.Awake();
-        animator = GetComponent<Animator>();
-    }
+        private Animator animator;
 
-    public override void TakeDamage(float damageAmount, Vector2 knockback)
-    {
-        base.TakeDamage(damageAmount, knockback);
-        if (animator != null)
+        public override void Awake()
         {
-            animator.SetTrigger("Hit");
+            base.Awake();
+            animator = GetComponent<Animator>();
+        }
+
+        public override void TakeDamage(float damageAmount, Vector2 knockback)
+        {
+            base.TakeDamage(damageAmount, knockback);
+            if (animator != null)
+            {
+                animator.SetTrigger("Hit");
+            }
         }
     }
 }

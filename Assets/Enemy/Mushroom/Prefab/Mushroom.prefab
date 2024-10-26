@@ -13,13 +13,11 @@ GameObject:
   - component: {fileID: 8436740953287114268}
   - component: {fileID: 6774823810149493918}
   - component: {fileID: 289048503592578391}
-  - component: {fileID: 7302554540322222879}
-  - component: {fileID: 4382930545987386670}
+  - component: {fileID: 5473231360335270436}
   - component: {fileID: 6169822113927294967}
-  - component: {fileID: 1201737474761141834}
-  - component: {fileID: 7582761518544463978}
-  - component: {fileID: 8277738272557794545}
   - component: {fileID: 5581264487478450375}
+  - component: {fileID: 157850259964905627}
+  - component: {fileID: 7582761518544463978}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Untagged
@@ -175,7 +173,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.001}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,9 +184,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.002}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7302554540322222879
+--- !u!114 &5473231360335270436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,19 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2378227311310121745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b98f865c49dfe4b833333497a91a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4382930545987386670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378227311310121745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b98f865c49dfe4b833333497a91a97, type: 3}
+  m_Script: {fileID: 11500000, guid: 62edf704659bbb64bad4729681e34ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6169822113927294967
@@ -224,7 +210,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1336b06cd3f465c45972a8ce27a46484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1201737474761141834
+  player: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 3
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5581264487478450375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,28 +227,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2378227311310121745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55986845beba5944796e68d0de81cc61, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fb36311cbe08954c81b6ba93f51d451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAttack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7302554540322222879}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  attackPoint: {fileID: 6294816573202965918}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  aiController: {fileID: 6169822113927294967}
+  patrolPoints:
+  - {x: -2, y: -1}
+  - {x: 10, y: -1}
+--- !u!114 &157850259964905627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378227311310121745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb559db8d7fbf754bb5cdc442d2434f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFacingRight: 0
 --- !u!114 &7582761518544463978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +262,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7302554540322222879}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: onHit
         m_Mode: 0
@@ -282,37 +274,6 @@ MonoBehaviour:
           m_StringArgument: onHit
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8277738272557794545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378227311310121745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460f1a1eb064e34488cec000e2cfbea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &5581264487478450375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378227311310121745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb36311cbe08954c81b6ba93f51d451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {x: -2, y: -1}
-  - {x: 10, y: -1}
 --- !u!1 &8380890825299899577
 GameObject:
   m_ObjectHideFlags: 0
