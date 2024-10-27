@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace ai.controller
 {
@@ -9,13 +8,11 @@ namespace ai.controller
         [SerializeField] protected LayerMask groundLayer;
         protected BoxCollider2D boxCollider2D;
 
-        [SerializeField] protected float radius = 3f;
-
+        protected float radius = 3f;
         protected float movementDirection = -1f;
-        [SerializeField] protected UnityEvent onAttack;
+        protected float distanceToPlayer = float.MaxValue;
 
         private bool _playerDetected = false;
-
         public bool PlayerDetected
         {
             get
@@ -41,7 +38,10 @@ namespace ai.controller
 
         protected virtual void Start() { }
 
-        protected virtual void Update() { }
+        protected virtual void Update() 
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        }
 
         public virtual bool Move(Vector2 target, float speed)
         {
@@ -58,14 +58,11 @@ namespace ai.controller
             return false;
         }
 
-        public virtual void Attack()
-        {
-            onAttack?.Invoke();
-        }
+        public virtual void Attack() { }
 
         protected virtual bool DetectPlayer()
         {
-            if (Vector2.Distance(transform.position, player.position) <= radius)
+            if (distanceToPlayer <= radius)
             {
                 return true;
             }

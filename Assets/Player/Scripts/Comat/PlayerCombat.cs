@@ -50,7 +50,6 @@ namespace player.combat
         public void FinishAttack()
         {
             isAttacking = false;
-            Debug.Log(isAttacking);
             onEndAttack?.Invoke();
         }
     }

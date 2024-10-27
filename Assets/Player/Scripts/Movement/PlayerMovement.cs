@@ -21,7 +21,7 @@ namespace player.movement
             {
                 _isGrounded = value;
                 if (animator != null)
-                    animator.SetBool(PlayerAnimationStrings.IsGrounded, value);
+                    animator.SetBool(PlayerAnimationStrings.isGrounded, value);
             }
         }
 

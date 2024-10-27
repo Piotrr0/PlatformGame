@@ -1,6 +1,8 @@
 using enemy.mushroom.ai;
 using ai.components.patrol;
 using sprite.flip;
+using UnityEngine;
+using enemy.mushroom.animations.strings;
 
 namespace enemy.mushroom.movement
 {
@@ -8,14 +10,26 @@ namespace enemy.mushroom.movement
     {
         private PatrolComponent patrolComponent;
         private SpriteFlipper flipper;
+        private Animator animator;
 
         private float speed = 3f;
+
+        private bool canMove
+        {
+            get
+            {
+                return PlayerDetected &&
+                       !animator.GetCurrentAnimatorStateInfo(0).IsName(MushroomAnimationStrings.hit) &&
+                       !animator.GetBool(MushroomAnimationStrings.isAttacking);
+            }
+        }
 
         protected override void Awake()
         {
             base.Awake();
             patrolComponent = GetComponent<PatrolComponent>();
             flipper = GetComponent<SpriteFlipper>();
+            animator = GetComponent<Animator>();
         }
 
         protected override void Start()
@@ -31,7 +45,7 @@ namespace enemy.mushroom.movement
             {
                 flipper.MoveDirection = movementDirection;
             }
-            if (PlayerDetected)
+            if (canMove)
             {
                 Move(player.position, speed);
             }

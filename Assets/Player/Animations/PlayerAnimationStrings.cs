@@ -2,11 +2,11 @@ namespace player.animations.strings
 {
     internal class PlayerAnimationStrings
     {
-        internal static string IsGrounded = "IsGrounded";
-        internal static string isFalling = "isFalling";
+        internal static string isGrounded = "IsGrounded";
+        internal static string isFalling = "IsFalling";
         internal static string xVelocity = "xVelocity";
         internal static string yVelocity = "yVelocity";
-        internal static string isAttacking = "isAttacking";
+        internal static string isAttacking = "IsAttacking";
     }
 }
 
