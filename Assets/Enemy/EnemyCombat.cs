@@ -6,18 +6,15 @@ using enemy.mushroom.animations.strings;
 public class EnemyCombat : AIController
 {
     [SerializeField] protected UnityEvent onAttack;
-    [SerializeField] private UnityEvent onEndAttack;
 
     private Animator animator;
     [SerializeField] private float attackRange;
 
-    private bool _isAttacking;
     public bool isAttacking
     {
-        get => _isAttacking;
+        get => animator.GetBool(MushroomAnimationStrings.isAttacking);
         private set
         {
-            _isAttacking = value;
             if (animator != null)
                 animator.SetBool(MushroomAnimationStrings.isAttacking, value);
         }
@@ -27,8 +24,7 @@ public class EnemyCombat : AIController
     {
         get
         {
-            return !animator.GetCurrentAnimatorStateInfo(0).IsName(MushroomAnimationStrings.hit) &&
-                !isAttacking &&
+            return !isAttacking &&
                 distanceToPlayer < attackRange;
         }
     }
@@ -53,11 +49,5 @@ public class EnemyCombat : AIController
         base.Attack();
         isAttacking = true;
         onAttack.Invoke();
-    }
-
-    protected virtual void FinishAttack()
-    {
-        isAttacking = false;
-        onEndAttack.Invoke();
     }
 }

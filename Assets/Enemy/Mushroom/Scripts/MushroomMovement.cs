@@ -19,7 +19,7 @@ namespace enemy.mushroom.movement
             get
             {
                 return PlayerDetected &&
-                       !animator.GetCurrentAnimatorStateInfo(0).IsName(MushroomAnimationStrings.hit) &&
+                       !animator.GetBool(MushroomAnimationStrings.isHit) &&
                        !animator.GetBool(MushroomAnimationStrings.isAttacking);
             }
         }

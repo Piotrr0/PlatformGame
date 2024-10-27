@@ -1,4 +1,4 @@
-using enemy.animations.strings;
+using animations.strings;
 using UnityEngine;
 
 namespace enemy.health
@@ -18,7 +18,7 @@ namespace enemy.health
             base.TakeDamage(damageAmount, knockback);
             if (animator != null)
             {
-                animator.SetTrigger(EnemyAnimationStrings.hit);
+                animator.SetBool(ActorAnimationStrings.isHit, true);
             }
         }
     }

@@ -1,8 +1,8 @@
-using enemy.animations.strings;
+using animations.strings;
 
 namespace enemy.mushroom.animations.strings
 {
-    internal class MushroomAnimationStrings : EnemyAnimationStrings
+    internal class MushroomAnimationStrings : ActorAnimationStrings
     {
 
     }

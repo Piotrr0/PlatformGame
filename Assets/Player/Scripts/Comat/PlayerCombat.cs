@@ -8,17 +8,14 @@ namespace player.combat
     public class PlayerCombat : MonoBehaviour
     {
         [SerializeField] private UnityEvent onAttack;
-        [SerializeField] private UnityEvent onEndAttack;
         private PlayerMovement movement;
         private Animator animator;
 
-        private bool _isAttacking;
         public bool isAttacking
         {
-            get => _isAttacking;
+            get => animator.GetBool(PlayerAnimationStrings.isAttacking);
             private set
             {
-                _isAttacking = value; 
                 if (animator != null)
                     animator.SetBool(PlayerAnimationStrings.isAttacking, value);
             }
@@ -45,12 +42,6 @@ namespace player.combat
         {
             isAttacking = true;
             onAttack?.Invoke(); 
-        }
-
-        public void FinishAttack()
-        {
-            isAttacking = false;
-            onEndAttack?.Invoke();
         }
     }
 
