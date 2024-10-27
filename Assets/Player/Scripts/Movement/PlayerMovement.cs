@@ -1,7 +1,6 @@
 using UnityEngine;
-using player.combat;
 using sprite.flip;
-using UnityEngine.UI;
+using player.animations.strings;
 
 namespace player.movement
 {
@@ -22,7 +21,7 @@ namespace player.movement
             {
                 _isGrounded = value;
                 if (animator != null)
-                    animator.SetBool("IsGrounded", value);
+                    animator.SetBool(PlayerAnimationStrings.IsGrounded, value);
             }
         }
 
@@ -34,7 +33,7 @@ namespace player.movement
             {
                 _isFalling = value;
                 if (animator != null)
-                    animator.SetBool("isFalling", value);
+                    animator.SetBool(PlayerAnimationStrings.isFalling, value);
             }
         }
 
@@ -47,15 +46,20 @@ namespace player.movement
                 _currentVelocity = value;
                 if (animator != null)
                 {
-                    animator.SetFloat("xVelocity", value.x);
-                    animator.SetFloat("yVelocity", value.y);
+                    animator.SetFloat(PlayerAnimationStrings.xVelocity, value.x);
+                    animator.SetFloat(PlayerAnimationStrings.yVelocity, value.y);
                 }
             }
         }
 
 
-        private bool canMove = true;
-        public bool CanMove { set  { canMove = value; } }
+        private bool canMove
+        {
+            get
+            {
+                return !animator.GetBool(PlayerAnimationStrings.isAttacking);
+            }
+        }
 
 
         private float moveSpeed = 7f;
@@ -73,7 +77,7 @@ namespace player.movement
         {
             if (flipper != null && canMove)
                 flipper.MoveDirection = horizontalInput;
-            
+
             UpdateGroundedFalling();
             ProcessMovementInput();
         }

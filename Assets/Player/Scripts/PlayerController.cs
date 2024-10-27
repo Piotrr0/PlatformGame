@@ -27,18 +27,6 @@ namespace player.controller
             if (body != null)
             {
                 body.velocity = new Vector2(0, body.velocity.y);
-                if(movement != null)
-                {
-                    movement.CanMove = false;
-                }
-            }
-        }
-
-        public void onEndAttack()
-        {
-            if (movement != null)
-            {
-                movement.CanMove = true;
             }
         }
     }

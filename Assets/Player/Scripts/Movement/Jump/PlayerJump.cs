@@ -1,5 +1,5 @@
 using UnityEngine;
-using player.combat;
+using player.animations.strings;
 
 namespace player.movement.jump
 {
@@ -7,7 +7,7 @@ namespace player.movement.jump
     {
         private Rigidbody2D body;
         private PlayerMovement movement;
-        private PlayerCombat comabat; // player jump should not be dependent on combat components
+        private Animator animator;
 
         private float jumpForce = 8f;
         private float jumpCutMultiplier = 0.3f;
@@ -18,11 +18,19 @@ namespace player.movement.jump
         private float coyoteTime = 0.1f;
         private float coyoteCounter = 0f;
 
+        private bool canJump
+        {
+            get 
+            {
+                return !animator.GetBool(PlayerAnimationStrings.isAttacking);
+            }
+        }
+
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
             movement = GetComponent<PlayerMovement>();
-            comabat = GetComponent<PlayerCombat>();
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -35,7 +43,7 @@ namespace player.movement.jump
 
         private void JumpButton()
         {
-            if (comabat.isAttacking) return;
+            if (!canJump) return;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

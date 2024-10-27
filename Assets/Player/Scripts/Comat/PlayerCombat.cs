@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using player.movement;
+using player.animations.strings;
 
 namespace player.combat
 {
@@ -19,7 +20,7 @@ namespace player.combat
             {
                 _isAttacking = value; 
                 if (animator != null)
-                    animator.SetBool("isAttacking", value);
+                    animator.SetBool(PlayerAnimationStrings.isAttacking, value);
             }
         }
 
@@ -49,6 +50,7 @@ namespace player.combat
         public void FinishAttack()
         {
             isAttacking = false;
+            Debug.Log(isAttacking);
             onEndAttack?.Invoke();
         }
     }
