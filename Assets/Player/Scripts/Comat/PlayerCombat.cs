@@ -8,7 +8,6 @@ namespace player.combat
     public class PlayerCombat : MonoBehaviour
     {
         [SerializeField] private UnityEvent onAttack;
-        private PlayerMovement movement;
         private Animator animator;
 
         public bool isAttacking
@@ -21,17 +20,26 @@ namespace player.combat
             }
         }
 
+        private bool canAttack
+        {
+            get 
+            {
+                return !isAttacking &&
+                    animator.GetBool(PlayerAnimationStrings.isGrounded) &&
+                    !animator.GetBool(PlayerAnimationStrings.isHit);
+            }
+        }
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
-            movement = GetComponent<PlayerMovement>();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (movement.isGrounded)
+                if (canAttack)
                 {
                     Attack();
                 }

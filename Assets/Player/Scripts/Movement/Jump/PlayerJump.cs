@@ -22,7 +22,10 @@ namespace player.movement.jump
         {
             get 
             {
-                return !animator.GetBool(PlayerAnimationStrings.isAttacking);
+                return !animator.GetBool(PlayerAnimationStrings.isAttacking) &&
+                    animator.GetBool(PlayerAnimationStrings.isGrounded) &&
+                    !animator.GetBool(PlayerAnimationStrings.isHit) &&
+                    coyoteCounter > 0;
             }
         }
 
@@ -43,13 +46,11 @@ namespace player.movement.jump
 
         private void JumpButton()
         {
-            if (!canJump) return;
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jumpBufferCounter = jumpBufferTime;
 
-                if (movement.isGrounded || coyoteCounter > 0)
+                if (canJump)
                 {
                     coyoteCounter = 0;
                     Jump();

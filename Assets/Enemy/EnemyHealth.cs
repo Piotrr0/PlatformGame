@@ -1,4 +1,5 @@
 using animations.strings;
+using player.animations.strings;
 using UnityEngine;
 
 namespace enemy.health
@@ -6,8 +7,17 @@ namespace enemy.health
     public class EnemyHealth : Health
     {
         private Animator animator;
+        public bool isHit
+        {
+            get => animator.GetBool(PlayerAnimationStrings.isHit);
+            private set
+            {
+                if (animator != null)
+                    animator.SetBool(PlayerAnimationStrings.isHit, value);
+            }
+        }
 
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             animator = GetComponent<Animator>();
@@ -16,10 +26,7 @@ namespace enemy.health
         public override void TakeDamage(float damageAmount, Vector2 knockback)
         {
             base.TakeDamage(damageAmount, knockback);
-            if (animator != null)
-            {
-                animator.SetBool(ActorAnimationStrings.isHit, true);
-            }
+            isHit = true;
         }
     }
 }

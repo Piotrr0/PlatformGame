@@ -57,7 +57,8 @@ namespace player.movement
         {
             get
             {
-                return !animator.GetBool(PlayerAnimationStrings.isAttacking);
+                return !animator.GetBool(PlayerAnimationStrings.isAttacking) &&
+                    !animator.GetBool(PlayerAnimationStrings.isHit);
             }
         }
 

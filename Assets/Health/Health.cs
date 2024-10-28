@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     protected float maxHealth = 100f;
     protected float health = 100f;
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         health = maxHealth;   
     }
