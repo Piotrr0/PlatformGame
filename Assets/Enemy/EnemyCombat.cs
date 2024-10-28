@@ -1,7 +1,7 @@
 using ai.controller;
 using UnityEngine.Events;
 using UnityEngine;
-using enemy.mushroom.animations.strings;
+using animations.strings;
 
 public class EnemyCombat : AIController
 {
@@ -12,11 +12,11 @@ public class EnemyCombat : AIController
 
     public bool isAttacking
     {
-        get => animator.GetBool(MushroomAnimationStrings.isAttacking);
+        get => animator.GetBool(ActorAnimationStrings.isAttacking);
         private set
         {
             if (animator != null)
-                animator.SetBool(MushroomAnimationStrings.isAttacking, value);
+                animator.SetBool(ActorAnimationStrings.isAttacking, value);
         }
     }
 
@@ -25,6 +25,7 @@ public class EnemyCombat : AIController
         get
         {
             return !isAttacking &&
+                !animator.GetBool(ActorAnimationStrings.isHit) &&
                 distanceToPlayer < attackRange;
         }
     }
