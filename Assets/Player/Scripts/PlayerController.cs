@@ -14,7 +14,7 @@ namespace player.controller
             movement = GetComponent<PlayerMovement>();
         }
 
-        public void onHit(float damage, Vector2 knockback)
+        public void OnHit(float damage, Vector2 knockback)
         {
             if (body != null)
             {
@@ -22,7 +22,7 @@ namespace player.controller
             }
         }
 
-        public void onAttack()
+        public void OnAttack()
         {
             if (body != null)
             {
