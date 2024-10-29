@@ -7,6 +7,7 @@ namespace player.animations.strings
         internal static string isGrounded = "IsGrounded";
         internal static string isFalling = "IsFalling";
         internal static string yVelocity = "yVelocity";
+        internal static string attackTrigger = "AttackTrigger"; 
     }
 }
 

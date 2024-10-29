@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using player.movement;
 using player.animations.strings;
 
 namespace player.combat
@@ -10,6 +9,7 @@ namespace player.combat
         [SerializeField] private UnityEvent onAttack;
         private Animator animator;
 
+        private bool _isAttacking;
         public bool isAttacking
         {
             get => animator.GetBool(PlayerAnimationStrings.isAttacking);
@@ -24,8 +24,7 @@ namespace player.combat
         {
             get 
             {
-                return !isAttacking &&
-                    animator.GetBool(PlayerAnimationStrings.isGrounded) &&
+                return animator.GetBool(PlayerAnimationStrings.isGrounded) &&
                     !animator.GetBool(PlayerAnimationStrings.isHit);
             }
         }
@@ -49,8 +48,13 @@ namespace player.combat
         private void Attack()
         {
             isAttacking = true;
+            animator.SetTrigger(PlayerAnimationStrings.attackTrigger);
             onAttack?.Invoke(); 
         }
-    }
 
+        private void FinishAttack()
+        {
+            isAttacking = false;
+        }
+    }
 }
