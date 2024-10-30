@@ -10,23 +10,11 @@ public class EnemyCombat : AIController
     private Animator animator;
     [SerializeField] private float attackRange;
 
-    public bool isAttacking
-    {
-        get => animator.GetBool(ActorAnimationStrings.isAttacking);
-        private set
-        {
-            if (animator != null)
-                animator.SetBool(ActorAnimationStrings.isAttacking, value);
-        }
-    }
-
     private bool canAttack
     {
         get
         {
-            return !isAttacking &&
-                !animator.GetBool(ActorAnimationStrings.isHit) &&
-                distanceToPlayer < attackRange;
+            return distanceToPlayer < attackRange;
         }
     }
 
@@ -42,13 +30,14 @@ public class EnemyCombat : AIController
         if (canAttack)
         {
             Attack();
+
         }
     }
 
     public override void Attack()
     {
         base.Attack();
-        isAttacking = true;
+        animator.SetTrigger(ActorAnimationStrings.attackTrigger);
         onAttack.Invoke();
     }
 }

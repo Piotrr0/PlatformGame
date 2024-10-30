@@ -52,16 +52,10 @@ namespace player.movement
             }
         }
 
-
-        private bool canMove
+        public bool canMove
         {
-            get
-            {
-                return !animator.GetBool(PlayerAnimationStrings.isAttacking) &&
-                    !animator.GetBool(PlayerAnimationStrings.isHit);
-            }
+            get { return animator.GetBool(PlayerAnimationStrings.canMove); }
         }
-
 
         private float moveSpeed = 7f;
         private float horizontalInput;
@@ -76,7 +70,7 @@ namespace player.movement
 
         private void Update()
         {
-            if (flipper != null && canMove)
+            if (flipper != null)
                 flipper.MoveDirection = horizontalInput;
 
             UpdateGroundedFalling();
@@ -85,10 +79,8 @@ namespace player.movement
 
         private void FixedUpdate()
         {
-            if (canMove)
-            {
+            if(canMove)
                 Move();
-            }
         }
 
         private void Move()

@@ -22,9 +22,9 @@ namespace player.movement.jump
         {
             get 
             {
-                return !animator.GetBool(PlayerAnimationStrings.isAttacking) &&
+                return 
+                    animator.GetBool(PlayerAnimationStrings.canMove) &&
                     animator.GetBool(PlayerAnimationStrings.isGrounded) &&
-                    !animator.GetBool(PlayerAnimationStrings.isHit) &&
                     coyoteCounter > 0;
             }
         }

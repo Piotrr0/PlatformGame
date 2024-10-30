@@ -6,15 +6,6 @@ namespace player.health
     public class PlayerHealth : Health
     {
         private Animator animator;
-        public bool isHit
-        {
-            get => animator.GetBool(PlayerAnimationStrings.isHit);
-            private set
-            {
-                if (animator != null)
-                    animator.SetBool(PlayerAnimationStrings.isHit, value);
-            }
-        }
 
         protected override void Awake()
         {
@@ -25,7 +16,7 @@ namespace player.health
         public override void TakeDamage(float damageAmount, Vector2 knockback)
         {
             base.TakeDamage(damageAmount, knockback);
-            isHit = true;
+            animator.SetTrigger(PlayerAnimationStrings.hitTrigger);
         }
     }
 }
