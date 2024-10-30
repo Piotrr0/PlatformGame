@@ -4,8 +4,9 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] private UnityEvent<float, Vector2> onHit;
-    protected float maxHealth = 100f;
-    protected float health = 100f;
+    [SerializeField] private UnityEvent onDie;
+    [SerializeField] protected float maxHealth = 100f;
+    [SerializeField] protected float health = 100f;
 
     protected virtual void Awake()
     {
@@ -16,5 +17,16 @@ public class Health : MonoBehaviour
     {
         health = Mathf.Max(health - damageAmount, 0);
         onHit?.Invoke(damageAmount, knockback);
+
+        if (health <= 0)
+        {
+            health = 0;
+            Die();
+        }
+    }
+
+    protected virtual void Die()
+    {
+        onDie?.Invoke();
     }
 }

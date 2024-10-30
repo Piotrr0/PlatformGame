@@ -1,5 +1,4 @@
 using animations.strings;
-using player.animations.strings;
 using UnityEngine;
 
 namespace enemy.health
@@ -18,6 +17,12 @@ namespace enemy.health
         {
             base.TakeDamage(damageAmount, knockback);
             animator.SetTrigger(ActorAnimationStrings.hitTrigger);
+        }
+
+        protected override void Die()
+        {
+            base.Die();
+            Destroy(gameObject);
         }
     }
 }
