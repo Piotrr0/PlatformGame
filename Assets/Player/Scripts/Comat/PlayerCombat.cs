@@ -9,6 +9,10 @@ namespace player.combat
         [SerializeField] private UnityEvent onAttack;
         private Animator animator;
 
+        [SerializeField] bool exhausted = false; // true when player finishes attack combo
+        [SerializeField] private float recoveryComboTime = 0.5f;
+        private float recoveryComboTimer = 0.5f;
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -16,7 +20,7 @@ namespace player.combat
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !exhausted)
             {
                 Attack();   
             }
@@ -26,6 +30,19 @@ namespace player.combat
         {
             animator.SetTrigger(PlayerAnimationStrings.attackTrigger);
             onAttack?.Invoke(); 
+        }
+
+        private void Recovery()
+        {
+            if (exhausted)
+            {
+                recoveryComboTimer -= Time.deltaTime;
+                if (recoveryComboTimer >= 0)
+                {
+                    recoveryComboTimer = recoveryComboTime;
+                    exhausted = false;
+                }
+            }
         }
     }
 }

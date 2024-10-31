@@ -1,32 +1,36 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+namespace health
 {
-    [SerializeField] private UnityEvent<float, Vector2> onHit;
-    [SerializeField] private UnityEvent onDie;
-    [SerializeField] protected float maxHealth = 100f;
-    [SerializeField] protected float health = 100f;
-
-    protected virtual void Awake()
+    public class Health : MonoBehaviour
     {
-        health = maxHealth;   
-    }
+        [SerializeField] private UnityEvent<float, Vector2> onHit;
+        [SerializeField] private UnityEvent onDie;
 
-    public virtual void TakeDamage(float damageAmount, Vector2 knockback)
-    {
-        health = Mathf.Max(health - damageAmount, 0);
-        onHit?.Invoke(damageAmount, knockback);
+        [SerializeField] protected float maxHealth = 100f;
+        protected float health = 100f;
 
-        if (health <= 0)
+        protected virtual void Awake()
         {
-            health = 0;
-            Die();
+            health = maxHealth;
         }
-    }
 
-    protected virtual void Die()
-    {
-        onDie?.Invoke();
+        public virtual void TakeDamage(float damageAmount, Vector2 knockback)
+        {
+            health = Mathf.Max(health - damageAmount, 0);
+            onHit?.Invoke(damageAmount, knockback);
+
+            if (health <= 0)
+            {
+                health = 0;
+                Die();
+            }
+        }
+
+        protected virtual void Die()
+        {
+            onDie?.Invoke();
+        }
     }
 }

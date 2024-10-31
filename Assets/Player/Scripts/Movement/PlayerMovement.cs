@@ -70,7 +70,7 @@ namespace player.movement
 
         private void Update()
         {
-            if (flipper != null)
+            if (flipper != null && canMove)
                 flipper.MoveDirection = horizontalInput;
 
             UpdateGroundedFalling();

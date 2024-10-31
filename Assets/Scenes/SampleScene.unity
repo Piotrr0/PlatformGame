@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 1951037661}
     - target: {fileID: 2591869072819769278, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: aiController
@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 1951037661}
     - target: {fileID: 2591869072819769278, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: aiController
@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 1951037661}
     - target: {fileID: 2591869072819769278, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: aiController
@@ -4733,6 +4733,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  exhausted: 0
+  recoveryComboTime: 0.5
 --- !u!114 &1951037668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4764,7 +4766,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   maxHealth: 100
-  health: 100
 --- !u!114 &1951037669
 MonoBehaviour:
   m_ObjectHideFlags: 0
