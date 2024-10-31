@@ -14,7 +14,8 @@ public class EnemyCombat : AIController
     {
         get
         {
-            return distanceToPlayer < attackRange;
+            return distanceToPlayer < attackRange &&
+                animator.GetBool(ActorAnimationStrings.canMove);
         }
     }
 
