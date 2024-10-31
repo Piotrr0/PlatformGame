@@ -27,6 +27,7 @@ namespace environment.interact.chest
 
         public void Interact()
         {
+            chestOpened = true;
             onChestOpen.Invoke();
             animator.SetTrigger(ChestAnimationStrings.openChest);
         }

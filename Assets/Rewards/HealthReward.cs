@@ -8,7 +8,7 @@ namespace reward.health
         [SerializeField] private Health health;
         [SerializeField] private float bonusHealth;
 
-        public void ColletReward()
+        public void CollectReward()
         {
             health.MaxHealth += bonusHealth;
             health.Heal();

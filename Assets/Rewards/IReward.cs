@@ -1,4 +1,4 @@
 public interface IReward
 {
-    public void ColletReward();
+    public void CollectReward();
 }
