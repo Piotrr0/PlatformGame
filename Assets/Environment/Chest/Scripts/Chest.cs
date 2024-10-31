@@ -28,8 +28,16 @@ namespace environment.interact.chest
         public void Interact()
         {
             chestOpened = true;
+            if (animator != null)
+            {
+                animator.SetTrigger(ChestAnimationStrings.openChest);
+            }
+        }
+
+        // Open during animation 
+        private void OpenChest()
+        {
             onChestOpen.Invoke();
-            animator.SetTrigger(ChestAnimationStrings.openChest);
         }
     }
 }

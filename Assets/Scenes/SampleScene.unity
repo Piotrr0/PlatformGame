@@ -4491,6 +4491,7 @@ GameObject:
   - component: {fileID: 1471906234}
   - component: {fileID: 1471906235}
   - component: {fileID: 1471906236}
+  - component: {fileID: 1471906237}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -4613,18 +4614,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: reward.gold.GoldReward, Assembly-CSharp
-        m_MethodName: CollectReward
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   player: {fileID: 1951037661}
   range: 1
 --- !u!114 &1471906236
@@ -4640,7 +4629,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1951037668}
+  maxHealthIcon: {fileID: 7324233088632380785, guid: 9e1880cdf62faa946827f512946961f8, type: 3}
   bonusHealth: 10
+--- !u!114 &1471906237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471906231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94d16a726040e140a318b5fc1c44e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1491547903 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6169822113927294967, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
@@ -4702,20 +4704,8 @@ MonoBehaviour:
   onChestOpen:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: reward.health.HealthReward, Assembly-CSharp
-        m_MethodName: CollectReward
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1928120258}
-        m_TargetAssemblyTypeName: reward.gold.GoldReward, Assembly-CSharp
+        m_TargetAssemblyTypeName: reward.coin.CoinReward, Assembly-CSharp
         m_MethodName: CollectReward
         m_Mode: 1
         m_Arguments:
