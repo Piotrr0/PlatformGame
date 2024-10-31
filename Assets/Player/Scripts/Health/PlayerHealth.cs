@@ -19,5 +19,10 @@ namespace player.health
             base.TakeDamage(damageAmount, knockback);
             animator.SetTrigger(PlayerAnimationStrings.hitTrigger);
         }
+
+        public override void Heal()
+        {
+            base.Heal();
+        }
     }
 }

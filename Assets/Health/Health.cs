@@ -9,11 +9,13 @@ namespace health
         [SerializeField] private UnityEvent onDie;
 
         [SerializeField] protected float maxHealth = 100f;
-        protected float health = 100f;
+        [SerializeField] protected float health = 100f;
+
+        public float MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
 
         protected virtual void Awake()
         {
-            health = maxHealth;
+            Heal();
         }
 
         public virtual void TakeDamage(float damageAmount, Vector2 knockback)
@@ -31,6 +33,11 @@ namespace health
         protected virtual void Die()
         {
             onDie?.Invoke();
+        }
+
+        public virtual void Heal()
+        {
+            health = maxHealth;
         }
     }
 }

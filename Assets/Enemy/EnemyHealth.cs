@@ -25,5 +25,10 @@ namespace enemy.health
             base.Die();
             Destroy(gameObject);
         }
+
+        public override void Heal()
+        {
+            base.Heal();
+        }
     }
 }
