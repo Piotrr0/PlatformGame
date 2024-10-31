@@ -113,7 +113,28 @@ TextureImporter:
       name: coins-chests-etc-2-0-noborders_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 64
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fa473cd72e5c2448c4a027d59917de
+      internalID: -708853685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coins-chests-etc-2-0-noborders_1
+      rect:
+        serializedVersion: 2
+        x: 80
         y: 1008
         width: 16
         height: 16
@@ -124,8 +145,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6fa473cd72e5c2448c4a027d59917de
-      internalID: -708853685
+      spriteID: 62a04c670a6af744583de29c812ee474
+      internalID: -1107847857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coins-chests-etc-2-0-noborders_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633bf80e9aabc2c47b27a8cb42d812e6
+      internalID: 1390900552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coins-chests-etc-2-0-noborders_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9820a2fa92243488bc67c04183d1f3
+      internalID: -887638375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coins-chests-etc-2-0-noborders_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e340b1e10a3d8d446a4e6a26283501eb
+      internalID: 198378698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coins-chests-etc-2-0-noborders_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1008
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e386e2f76d0854c94aa87d3a63f132
+      internalID: 679827446
       vertices: []
       indices: 
       edges: []
@@ -142,6 +247,11 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       coins-chests-etc-2-0-noborders_0: -708853685
+      coins-chests-etc-2-0-noborders_1: -1107847857
+      coins-chests-etc-2-0-noborders_2: 1390900552
+      coins-chests-etc-2-0-noborders_3: -887638375
+      coins-chests-etc-2-0-noborders_4: 198378698
+      coins-chests-etc-2-0-noborders_5: 679827446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
