@@ -1,5 +1,5 @@
 using UnityEngine;
-using player.animations.strings;
+using animations.strings;
 
 namespace player.movement.jump
 {

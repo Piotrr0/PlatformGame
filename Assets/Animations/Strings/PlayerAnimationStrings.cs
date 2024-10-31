@@ -1,6 +1,4 @@
-using animations.strings;
-
-namespace player.animations.strings
+namespace animations.strings
 {
     internal class PlayerAnimationStrings : ActorAnimationStrings
     {

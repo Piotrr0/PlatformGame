@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using player.animations.strings;
+using animations.strings;
 
 namespace player.combat
 {

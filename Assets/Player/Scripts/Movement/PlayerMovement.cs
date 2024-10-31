@@ -1,6 +1,6 @@
 using UnityEngine;
 using sprite.flip;
-using player.animations.strings;
+using animations.strings;
 
 namespace player.movement
 {

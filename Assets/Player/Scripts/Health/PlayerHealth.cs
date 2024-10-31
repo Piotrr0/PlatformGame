@@ -1,6 +1,6 @@
-using player.animations.strings;
-using health;
 using UnityEngine;
+using animations.strings;
+using health;
 
 namespace player.health
 {
