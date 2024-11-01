@@ -5510,7 +5510,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 925938931}
         m_TargetAssemblyTypeName: ui.healthBar.HealthBar, Assembly-CSharp
-        m_MethodName: UpdateSlider
+        m_MethodName: UpdateHealthBar
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
