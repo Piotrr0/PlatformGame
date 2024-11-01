@@ -7,6 +7,7 @@ namespace health
     {
         [SerializeField] private UnityEvent<float, Vector2> onHit;
         [SerializeField] private UnityEvent onDie;
+        [SerializeField] private UnityEvent<float> onHealthChanged;
 
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected float health = 100f;
@@ -28,6 +29,7 @@ namespace health
                 health = 0;
                 Die();
             }
+            onHealthChanged?.Invoke(health);
         }
 
         protected virtual void Die()
@@ -38,6 +40,7 @@ namespace health
         public virtual void Heal()
         {
             health = maxHealth;
+            onHealthChanged?.Invoke(health);
         }
     }
 }
