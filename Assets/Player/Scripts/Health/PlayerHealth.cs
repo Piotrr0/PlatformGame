@@ -24,5 +24,11 @@ namespace player.health
         {
             base.Heal();
         }
+
+        public override void Heal(float amount)
+        {
+            base.Heal(amount);
+            Debug.Log(amount);
+        }
     }
 }

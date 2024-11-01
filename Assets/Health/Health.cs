@@ -42,5 +42,11 @@ namespace health
             health = maxHealth;
             onHealthChanged?.Invoke(health);
         }
+
+        public virtual void Heal(float amount)
+        {
+            health = Mathf.Min(health + amount, maxHealth);
+            onHealthChanged?.Invoke(health);
+        }
     }
 }

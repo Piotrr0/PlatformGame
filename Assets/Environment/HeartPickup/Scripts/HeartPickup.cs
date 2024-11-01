@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace environment.collect.coin
+namespace environment.collect.heartPickup
 {
-    public class Coin : MonoBehaviour, ICollectable
+    public class HeartPickup : MonoBehaviour, ICollectable
     {
-        private UnityEvent OnCoinCollect;
+        [SerializeField] UnityEvent<float> OnHeartPickup;
+        [SerializeField] private float healValue;
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
@@ -17,7 +18,7 @@ namespace environment.collect.coin
 
         public void Collect()
         {
-            OnCoinCollect?.Invoke();
+            OnHeartPickup?.Invoke(healValue);
             Destroy(gameObject);
         }
     }
