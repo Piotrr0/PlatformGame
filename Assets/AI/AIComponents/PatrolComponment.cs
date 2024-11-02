@@ -12,11 +12,13 @@ namespace ai.components.patrol
         [SerializeField] private List<Vector2> patrolPoints;
         private int currentPatrolIndex = 0;
 
-        private IEnumerator MoveToPatrolPoint(Vector2 patrolPoint, float speed)
+        private IEnumerator MoveToPatrolPoint(Vector2 localPatrolPoint, float speed)
         {
-            while (Mathf.Abs(transform.position.x - patrolPoint.x) > 0.01f)
+            Vector2 globalPatrolPoint = transform.TransformPoint(localPatrolPoint);
+
+            while (Mathf.Abs(transform.position.x - globalPatrolPoint.x) > 0.01f)
             {
-                Vector2 targetPosition = new Vector2(patrolPoint.x, transform.position.y);
+                Vector2 targetPosition = new Vector2(globalPatrolPoint.x, transform.position.y);
                 if (aiController == null || !aiController.Move(targetPosition, speed) || aiController.PlayerDetected)
                 {
                     yield break;
@@ -46,12 +48,12 @@ namespace ai.components.patrol
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            if (patrolPoints == null) return;
-            foreach (Vector2 patrolPoint in patrolPoints)
+
+            foreach (Vector2 localPatrolPoint in patrolPoints)
             {
-                Gizmos.DrawWireSphere(patrolPoint, 0.25f);
+                Vector2 globalPatrolPoint = transform.TransformPoint(localPatrolPoint);
+                Gizmos.DrawWireSphere(globalPatrolPoint, 0.25f);
             }
         }
     }
 }
-

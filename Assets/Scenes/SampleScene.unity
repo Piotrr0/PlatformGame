@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 1491547903}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[1].x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6169822113927294967, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: player
@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 95063978}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[0].x
-      value: 20
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[0].y
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[1].x
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[1].y
@@ -928,19 +928,19 @@ PrefabInstance:
       objectReference: {fileID: 958618564}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[0].x
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[0].y
-      value: -10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[1].x
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5581264487478450375, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: patrolPoints.Array.data[1].y
-      value: -10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6169822113927294967, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
       propertyPath: player
