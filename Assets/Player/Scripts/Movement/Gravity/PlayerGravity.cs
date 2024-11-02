@@ -8,8 +8,8 @@ namespace player.movement.gravity
         private PlayerMovement movement;
 
         private float gravity = 1f;
-        private float maxGravity = 5f;
-        private float gravityIncrement = 2f;
+        [SerializeField] private float maxGravity = 5f;
+        [SerializeField] private float gravityIncrement = 2f;
 
         private void Awake()
         {

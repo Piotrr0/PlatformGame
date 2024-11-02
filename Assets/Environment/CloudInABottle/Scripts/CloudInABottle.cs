@@ -1,34 +1,37 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CloudInABottle : MonoBehaviour, IInteractable, IReward
+namespace environment.interact.cloudInABottle
 {
-    [SerializeField] private UnityEvent onBottleRewardCollect;
-    [SerializeField] private Transform player;
-    [SerializeField] private float range = 1.0f;
-
-    private void Update()
+    public class CloudInABottle : MonoBehaviour, IInteractable, IReward
     {
-        if (CanInteract())
+        [SerializeField] private UnityEvent onBottleRewardCollect;
+        [SerializeField] private Transform player;
+        [SerializeField] private float range = 1.0f;
+
+        private void Update()
         {
-            Interact();
+            if (CanInteract())
+            {
+                Interact();
+            }
         }
-    }
 
-    public bool CanInteract()
-    {
-        return Input.GetKeyDown(KeyCode.E) &&
-            Vector2.Distance(player.position, transform.position) <= range;
-    }
+        public bool CanInteract()
+        {
+            return Input.GetKeyDown(KeyCode.E) &&
+                Vector2.Distance(player.position, transform.position) <= range;
+        }
 
-    public void Interact()
-    {
-        CollectReward();
-    }
+        public void Interact()
+        {
+            CollectReward();
+        }
 
-    public void CollectReward()
-    {
-        onBottleRewardCollect?.Invoke();
-        Destroy(gameObject);
+        public void CollectReward()
+        {
+            onBottleRewardCollect?.Invoke();
+            Destroy(gameObject);
+        }
     }
 }
