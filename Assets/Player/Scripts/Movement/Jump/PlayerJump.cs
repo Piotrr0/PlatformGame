@@ -6,33 +6,38 @@ namespace player.movement.jump
     public class PlayerJump : MonoBehaviour
     {
         private Rigidbody2D body;
-        private PlayerMovement movement;
         private Animator animator;
 
-        private float jumpForce = 8f;
-        private float jumpCutMultiplier = 0.3f;
+        [SerializeField] private float jumpForce = 8f;
+        [SerializeField] private float jumpCutMultiplier = 0.3f;
 
-        private float jumpBufferTime = 0.2f;
+        [SerializeField] private float jumpBufferTime = 0.2f;
         private float jumpBufferCounter = 0f;
 
-        private float coyoteTime = 0.1f;
+        [SerializeField] private float coyoteTime = 0.1f;
         private float coyoteCounter = 0f;
+
+        [SerializeField] private bool canDoubleJump;
+        private int maxJumpCount = 1;
+        private int jumpCount = 0;
+
+        private bool isGrounded { get { return animator.GetBool(PlayerAnimationStrings.isGrounded); } }
 
         private bool canJump
         {
-            get 
+            get
             {
-                return 
+                return
                     animator.GetBool(PlayerAnimationStrings.canMove) &&
-                    animator.GetBool(PlayerAnimationStrings.isGrounded) &&
-                    coyoteCounter > 0;
+                    (isGrounded || (canDoubleJump && jumpCount < maxJumpCount)) &&
+                    (coyoteCounter > 0 || jumpCount < maxJumpCount);
             }
         }
+
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
-            movement = GetComponent<PlayerMovement>();
             animator = GetComponent<Animator>();
         }
 
@@ -63,12 +68,13 @@ namespace player.movement.jump
             if (body != null)
             {
                 body.velocity = new Vector2(body.velocity.x, jumpForce);
+                jumpCount++;
             }
         }
 
         private void HandleJumpBuffer()
         {
-            if (movement.isGrounded && jumpBufferCounter > 0)
+            if (isGrounded && jumpBufferCounter > 0)
             {
                 Jump();
                 jumpBufferCounter = 0f;
@@ -82,13 +88,14 @@ namespace player.movement.jump
 
         private void HandleCoyoteCounter()
         {
-            if (!movement.isGrounded)
+            if (isGrounded)
             {
-                coyoteCounter -= Time.deltaTime;
+                coyoteCounter = coyoteTime;
+                jumpCount = 0;
             }
             else
             {
-                coyoteCounter = coyoteTime;
+                coyoteCounter -= Time.deltaTime;
             }
         }
 
@@ -97,6 +104,15 @@ namespace player.movement.jump
             if (Input.GetKeyUp(KeyCode.Space) && body && body.velocity.y > 0)
             {
                 body.velocity = new Vector2(body.velocity.x, body.velocity.y * jumpCutMultiplier);
+            }
+        }
+
+        public void OnBottleRewardCollect()
+        {
+            if (!canDoubleJump)
+            {
+                canDoubleJump = true;
+                maxJumpCount = 2;
             }
         }
     }

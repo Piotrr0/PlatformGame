@@ -19,10 +19,16 @@ namespace environment.interact.chest
 
         private void Update()
         {
-            if (!chestOpened && Input.GetKeyDown(KeyCode.E) && Vector2.Distance(player.position, transform.position) <= range)
+            if (CanInteract())
             {
                 Interact();
             }
+        }
+
+        public bool CanInteract()
+        {
+            return !chestOpened && Input.GetKeyDown(KeyCode.E) &&
+                Vector2.Distance(player.position, transform.position) <= range;
         }
 
         public void Interact()

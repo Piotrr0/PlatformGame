@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 namespace reward.health
 {
-    [RequireComponent(typeof(ObjectInterpolator))]
     public class HealthReward : MonoBehaviour, IReward
     {
         [SerializeField] private Health health;
