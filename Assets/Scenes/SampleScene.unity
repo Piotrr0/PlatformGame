@@ -4731,8 +4731,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1951037668}
-  maxHealthIcon: {fileID: 7324233088632380785, guid: 9e1880cdf62faa946827f512946961f8, type: 3}
   bonusHealth: 10
+  onHealthRewardCollect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1471906237}
+        m_TargetAssemblyTypeName: prefab.interp.ObjectInterpolator, Assembly-CSharp
+        m_MethodName: StartInterpolate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471906237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4745,6 +4759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94d16a726040e140a318b5fc1c44e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0.75}
+  endPosition: {x: 0, y: 1.5}
+  duration: 0.5
+  objectToInterpolate: {fileID: 7324233088632380785, guid: 9e1880cdf62faa946827f512946961f8, type: 3}
 --- !u!114 &1491547903 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6169822113927294967, guid: 5abf7d0ba34b1944995824bc17527f2c, type: 3}
