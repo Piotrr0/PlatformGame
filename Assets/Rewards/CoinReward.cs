@@ -5,9 +5,12 @@ namespace reward.coin
 {
     public class CoinReward : MonoBehaviour, IReward
     {
-        [SerializeField] private float count;
         [SerializeField] private GameObject coinPrefab;
+        [SerializeField] private int count;
         [SerializeField] private float collectibleDelay = 0.25f;
+
+        [SerializeField] private Vector2 offsetX = new Vector2(-0.75f, 0.75f);
+        [SerializeField] private Vector2 offsetY = new Vector2(0f, 0.75f);
 
         public void CollectReward()
         {
@@ -18,7 +21,7 @@ namespace reward.coin
         {
             for (int i = 0; i < count; i++)
             {
-                Vector2 offset = new Vector2(Random.Range(-0.75f, 0.75f), Random.Range(-0.75f, 0.75f));
+                Vector2 offset = new Vector2(Random.Range(offsetX.x ,offsetX.y), Random.Range(offsetY.x, offsetY.y));
                 Vector2 position = (Vector2)transform.position + offset;
                 GameObject coin = Instantiate(coinPrefab, position, Quaternion.identity);
 

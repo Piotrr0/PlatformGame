@@ -8256,6 +8256,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91bb11fa7c00ad448e434028b139ad1, type: 3}
+--- !u!1 &1447962731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5471211568605292498, guid: e91bb11fa7c00ad448e434028b139ad1, type: 3}
+  m_PrefabInstance: {fileID: 7153359003586700046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471906231
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,9 +8665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a8280b84b383040bc3b875a19839ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 1447962731}
   count: 3
-  coinPrefab: {fileID: 5471211568605292498, guid: e91bb11fa7c00ad448e434028b139ad1, type: 3}
   collectibleDelay: 0.25
+  offsetX: {x: -0.75, y: 0.75}
+  offsetY: {x: 0, y: 0.75}
 --- !u!114 &1928120260
 MonoBehaviour:
   m_ObjectHideFlags: 0
