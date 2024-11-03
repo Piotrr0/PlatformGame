@@ -5,7 +5,7 @@ namespace environment.collect.coin
 {
     public class Coin : MonoBehaviour, ICollectable
     {
-        private UnityEvent OnCoinCollect;
+        [SerializeField] private UnityEvent onCoinCollect;
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
@@ -17,7 +17,7 @@ namespace environment.collect.coin
 
         public void Collect()
         {
-            OnCoinCollect?.Invoke();
+            onCoinCollect?.Invoke();
             Destroy(gameObject);
         }
     }

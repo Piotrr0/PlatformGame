@@ -6,12 +6,11 @@ namespace player.controller
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody2D body;
-        private PlayerMovement movement;
+        [SerializeField] private int coins = 0;
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
-            movement = GetComponent<PlayerMovement>();
         }
 
         public void OnHit(float damage, Vector2 knockback)
@@ -28,6 +27,11 @@ namespace player.controller
             {
                 body.velocity = new Vector2(0, body.velocity.y);
             }
+        }
+
+        public void OnCoinCollet()
+        {
+            coins++;
         }
     }
 }
