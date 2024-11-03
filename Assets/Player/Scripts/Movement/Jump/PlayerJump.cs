@@ -74,7 +74,7 @@ namespace player.movement.jump
 
         private void HandleJumpBuffer()
         {
-            if (isGrounded && jumpBufferCounter > 0)
+            if (isGrounded && jumpBufferCounter > 0 && canJump)
             {
                 Jump();
                 jumpBufferCounter = 0f;
