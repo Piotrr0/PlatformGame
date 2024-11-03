@@ -3,42 +3,43 @@ using UnityEngine.Events;
 using UnityEngine;
 using animations.strings;
 
-public class EnemyCombat : AIController
+namespace enemy.combat
 {
-    [SerializeField] protected UnityEvent onAttack;
-
-    private Animator animator;
-    [SerializeField] private float attackRange;
-
-    private bool canAttack
+    public class EnemyCombat : AIController
     {
-        get
+        [SerializeField] protected UnityEvent onAttack;
+        [SerializeField] protected float attackRange;
+
+        protected Animator animator;
+
+        protected virtual bool canAttack
         {
-            return distanceToPlayer < attackRange &&
-                animator.GetBool(ActorAnimationStrings.canMove);
+            get
+            {
+                return distanceToPlayer < attackRange;
+            }
         }
-    }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        animator = GetComponent<Animator>();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (canAttack)
+        protected override void Awake()
         {
-            Attack();
-
+            base.Awake();
+            animator = GetComponent<Animator>();
         }
-    }
 
-    public override void Attack()
-    {
-        base.Attack();
-        animator.SetTrigger(ActorAnimationStrings.attackTrigger);
-        onAttack.Invoke();
+        protected override void Update()
+        {
+            base.Update();
+            if (canAttack)
+            {
+                Attack();
+            }
+        }
+
+        public override void Attack()
+        {
+            base.Attack();
+            animator.SetTrigger(ActorAnimationStrings.attackTrigger);
+            onAttack.Invoke();
+        }
     }
 }
