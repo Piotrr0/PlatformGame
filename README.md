@@ -3,4 +3,4 @@ Mushroom - https://monopixelart.itch.io/forest-monsters-pixel-art/purchase <br /
 Forest - https://aamatniekss.itch.io/free-pixelart-platformer-tileset <br />
 Chests - https://crumpaloo.itch.io/15-ready-to-use-chest-animations <br />
 PickUps - https://greatdocbrown.itch.io/coins-gems-etc <br />
-Plants - https://bdragon1727.itch.io/platfrom-trap-and-weapon<br />
+Plants - https://jeevo.itch.io/plants<br />
