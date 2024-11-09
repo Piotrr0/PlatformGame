@@ -5,10 +5,10 @@ namespace attack
 {
     public class Attack : MonoBehaviour
     {
-        [SerializeField] private float attackDamage = 10f;
-        [SerializeField] private Vector2 knockback = new Vector2(0f, 0f);
+        [SerializeField] protected float attackDamage = 10f;
+        [SerializeField] protected Vector2 knockback = new Vector2(0f, 0f);
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             Health health = collision.GetComponent<Health>();
             if (health != null)
@@ -17,6 +17,11 @@ namespace attack
                 Vector2 knockbackForce = new Vector2(knockback.x * direction, knockback.y);
                 health.TakeDamage(attackDamage, knockbackForce);
             }
+        }
+
+        protected virtual void Update()
+        {
+
         }
     }
 }

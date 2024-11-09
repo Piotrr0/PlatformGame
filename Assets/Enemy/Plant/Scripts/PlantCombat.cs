@@ -33,6 +33,15 @@ namespace enemy.plant.combat
             base.Attack();
         }
 
+        private void FireProjectile()
+        {
+            if (projectile != null)
+            {
+                GameObject proj = Instantiate(projectile);
+                proj.transform.position = transform.position;
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
