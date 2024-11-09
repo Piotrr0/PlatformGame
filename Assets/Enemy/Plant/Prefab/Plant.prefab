@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7471903795753761911}
   - component: {fileID: 7338354006535364705}
   - component: {fileID: 6379305029427789635}
+  - component: {fileID: 3765477947807855377}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -188,3 +189,26 @@ MonoBehaviour:
   attackRange: 20
   projectile: {fileID: 3286187537199778398, guid: 34ea595f7f39a364d9bbf1c7cdbac526, type: 3}
   isPlayerInRange: 0
+--- !u!114 &3765477947807855377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069118217890547150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fe67fe465afa849a29b0fe095c8242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 100
+  health: 100
