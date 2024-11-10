@@ -1,14 +1,14 @@
-using ai.controller;
+using enemy.movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ai.components.patrol
 {
-    [RequireComponent(typeof(AIController))]
+    [RequireComponent(typeof(EnemyMovement))]
     public class PatrolComponent : MonoBehaviour
     {
-        [SerializeField] private AIController aiController;
+        [SerializeField] private EnemyMovement movement;
         [SerializeField] private List<Vector2> patrolPoints;
         private int currentPatrolIndex = 0;
 
@@ -19,7 +19,7 @@ namespace ai.components.patrol
             while (Mathf.Abs(transform.position.x - globalPatrolPoint.x) > 0.01f)
             {
                 Vector2 targetPosition = new Vector2(globalPatrolPoint.x, transform.position.y);
-                if (aiController == null || !aiController.Move(targetPosition, speed) || aiController.PlayerDetected)
+                if (!movement.Move(targetPosition, speed))
                 {
                     yield break;
                 }
@@ -35,13 +35,9 @@ namespace ai.components.patrol
                 yield break;
             }
 
-            while (aiController)
+            while (movement)
             {
-                if (!aiController.PlayerDetected)
-                {
-                    yield return StartCoroutine(MoveToPatrolPoint(patrolPoints[currentPatrolIndex], speed));
-                }
-                yield return null;
+                yield return StartCoroutine(MoveToPatrolPoint(patrolPoints[currentPatrolIndex], speed));
             }
         }
 

@@ -10,21 +10,17 @@ namespace ai.controller
 
         protected float radius = 3f;
         protected float movementDirection = -1f;
-        protected float distanceToPlayer = float.MaxValue;
 
-        private bool _playerDetected = false;
-        public bool PlayerDetected
+        private bool _detectPlayer = false;
+        public bool detectPlayer
         {
             get
             {
-                if(_playerDetected)
-                    return true;
-                else
+                if (!_detectPlayer)
                 {
-                    _playerDetected = DetectPlayer();
-                    return _playerDetected;
+                    _detectPlayer = DetectPlayer();
                 }
-                    
+                return _detectPlayer;
             }
         }
 
@@ -38,31 +34,11 @@ namespace ai.controller
 
         protected virtual void Start() { }
 
-        protected virtual void Update() 
-        {
-            distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        }
-
-        public virtual bool Move(Vector2 target, float speed)
-        {
-            movementDirection = Mathf.Sign(target.x - transform.position.x);
-
-            float fixedY = transform.position.y;
-            target = new Vector2(target.x, fixedY);
-
-            if (IsGroundAhead(movementDirection))
-            {
-                transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, fixedY), target, speed * Time.deltaTime);
-                return true;
-            }
-            return false;
-        }
-
-        public virtual void Attack() { }
+        protected virtual void Update() { }
 
         protected virtual bool DetectPlayer()
         {
-            if (distanceToPlayer <= radius)
+            if (Vector2.Distance(player.position,transform.position) <= radius)
             {
                 return true;
             }
@@ -83,4 +59,3 @@ namespace ai.controller
         }
     }
 }
-

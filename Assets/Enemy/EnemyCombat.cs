@@ -1,7 +1,6 @@
 using ai.controller;
 using UnityEngine.Events;
 using UnityEngine;
-using animations.strings;
 
 namespace enemy.combat
 {
@@ -10,20 +9,17 @@ namespace enemy.combat
         [SerializeField] protected UnityEvent onAttack;
         [SerializeField] protected float attackRange;
 
-        protected Animator animator;
-
         protected virtual bool canAttack
         {
             get
             {
-                return distanceToPlayer < attackRange;
+                return Vector2.Distance(player.position, transform.position) < attackRange;
             }
         }
 
         protected override void Awake()
         {
             base.Awake();
-            animator = GetComponent<Animator>();
         }
 
         protected override void Update()
@@ -35,10 +31,8 @@ namespace enemy.combat
             }
         }
 
-        public override void Attack()
+        protected virtual void Attack()
         {
-            base.Attack();
-            animator.SetTrigger(ActorAnimationStrings.attackTrigger);
             onAttack.Invoke();
         }
     }

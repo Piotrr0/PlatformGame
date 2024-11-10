@@ -10,6 +10,7 @@ namespace enemy.plant.combat
 
         private BoxCollider2D activateBox;
         [SerializeField] private bool isPlayerInRange = false;
+        [SerializeField] private Animator animator;
 
         protected override bool canAttack
         {
@@ -19,6 +20,7 @@ namespace enemy.plant.combat
         protected override void Awake()
         {
             base.Awake();
+            animator = GetComponent<Animator>();
             activateBox = GetComponent<BoxCollider2D>();
             activateBox.size = new Vector2(attackRange, 2);
         }
@@ -28,7 +30,7 @@ namespace enemy.plant.combat
             base.Update();
         }
 
-        public override void Attack()
+        protected override void Attack()
         {
             base.Attack();
         }

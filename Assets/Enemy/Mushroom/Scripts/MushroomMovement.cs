@@ -1,22 +1,23 @@
-using enemy.mushroom.ai;
 using ai.components.patrol;
 using sprite.flip;
 using UnityEngine;
+using enemy.movement;
 using animations.strings;
 
 namespace enemy.mushroom.movement
 {
-    public class MushroomMovement : MushroomAI
+    public class MushroomMovement : EnemyMovement
     {
         private PatrolComponent patrolComponent;
         private SpriteFlipper flipper;
         private Animator animator;
 
-        private float speed = 3f;
-
-        private bool canMove
-        {
-            get { return animator.GetBool(ActorAnimationStrings.canMove); }
+        protected override bool canMove
+        { 
+            get 
+            {
+                return base.canMove && animator.GetBool(MushroomAnimationStrings.canMove); 
+            } 
         }
 
         protected override void Awake()
@@ -35,16 +36,20 @@ namespace enemy.mushroom.movement
 
         protected override void Update()
         {
-            base.Update();
             if (flipper != null)
             {
                 flipper.MoveDirection = movementDirection;
             }
-            if (PlayerDetected && canMove)
+            if (canMove)
             {
                 Move(player.position, speed);
-            } 
+                patrolComponent.StopAllCoroutines();
+            }
+        }
+
+        public override bool Move(Vector2 target, float speed)
+        {
+            return base.Move(target, speed);
         }
     }
 }
-
