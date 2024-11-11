@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985611cefd6012b4a8337c761be0202f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 0
 --- !u!114 &378956429924136765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aaf1e760e184c43acb43ecb62f8921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxGravity: 5
+  gravityIncrement: 2
 --- !u!114 &5737565190326804239
 MonoBehaviour:
   m_ObjectHideFlags: 0

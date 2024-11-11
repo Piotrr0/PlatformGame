@@ -158,8 +158,20 @@ MonoBehaviour:
   onCoinCollect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300269262225940465, guid: 00c63b575fbb09d40b06e57a2642deb7, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: player.controller.PlayerController, Assembly-CSharp
+        m_MethodName: OnCoinCollet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CoinCounter, Assembly-CSharp
         m_MethodName: OnCoinCollet
         m_Mode: 1
         m_Arguments:

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7582761518544463978}
   m_Layer: 7
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  speed: 3
 --- !u!114 &2591869072819769278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,10 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb36311cbe08954c81b6ba93f51d451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiController: {fileID: 6169822113927294967}
+  movement: {fileID: 6169822113927294967}
   patrolPoints:
-  - {x: -2, y: -1}
-  - {x: 6, y: -1}
+  - {x: 0, y: -1}
+  - {x: 4, y: -1}
 --- !u!114 &157850259964905627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +295,11 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 100
+  health: 100
 --- !u!1 &8380890825299899577
 GameObject:
   m_ObjectHideFlags: 0

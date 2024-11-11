@@ -7,10 +7,9 @@ namespace enemy.plant.combat
     public class PlantCombat : EnemyCombat
     {
         [SerializeField] private GameObject projectile;
-
-        private BoxCollider2D activateBox;
         [SerializeField] private bool isPlayerInRange = false;
-        [SerializeField] private Animator animator;
+
+        private Animator animator;
 
         protected override bool canAttack
         {
@@ -21,8 +20,6 @@ namespace enemy.plant.combat
         {
             base.Awake();
             animator = GetComponent<Animator>();
-            activateBox = GetComponent<BoxCollider2D>();
-            activateBox.size = new Vector2(attackRange, 2);
         }
 
         protected override void Update()
@@ -33,6 +30,7 @@ namespace enemy.plant.combat
         protected override void Attack()
         {
             base.Attack();
+            animator.SetTrigger(PlantAnimationStrings.attackTrigger);
         }
 
         private void FireProjectile()
@@ -44,21 +42,21 @@ namespace enemy.plant.combat
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collider)
+        public void OnZoneEnter()
         {
-            if (collider.CompareTag("Player"))
+            isPlayerInRange = true;
+            if (animator != null)
             {
-                isPlayerInRange = true;
-                animator.SetBool(PlantAnimationStrings.isActive, isPlayerInRange);
+                animator.SetBool(PlantAnimationStrings.isActive, true);
             }
         }
 
-        private void OnTriggerExit2D(Collider2D collider)
+        public void OnZoneExit()
         {
-            if (collider.CompareTag("Player"))
+            isPlayerInRange = false;
+            if (animator != null)
             {
-                isPlayerInRange = false;
-                animator.SetBool(PlantAnimationStrings.isActive, isPlayerInRange);
+                animator.SetBool(PlantAnimationStrings.isActive, false);
             }
         }
     }
