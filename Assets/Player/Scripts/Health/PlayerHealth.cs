@@ -17,7 +17,6 @@ namespace player.health
         public override void TakeDamage(float damageAmount, Vector2 knockback)
         {
             base.TakeDamage(damageAmount, knockback);
-            animator.SetTrigger(PlayerAnimationStrings.hitTrigger);
         }
 
         public override void Heal()
@@ -28,7 +27,22 @@ namespace player.health
         public override void Heal(float amount)
         {
             base.Heal(amount);
-            Debug.Log(amount);
+        }
+
+        protected override void Die()
+        {
+            base.Die();
+            Debug.Log("Die");
+        }
+
+        public void OnHit()
+        {
+            animator.SetTrigger(PlayerAnimationStrings.hitTrigger);
+        }
+
+        public void OnKillZoneEnter()
+        {
+            Die();
         }
     }
 }
